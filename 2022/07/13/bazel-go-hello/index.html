@@ -1,0 +1,3931 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Bazel Golang hello-world | 后端云</title>
+  <meta name="keywords" content=" Bazel , KubeVirt CI ">
+  <meta name="description" content="Bazel Golang hello-world | 后端云">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="联系方式：  email: backendcloud@163.com   微信    			 			 			 			var isMobile &#x3D; navigator.userAgent.match(&#x2F;(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="后端云">
+<meta property="og:url" content="https://www.backendcloud.cn/address-card/index.html">
+<meta property="og:site_name" content="后端云">
+<meta property="og:description" content="联系方式：  email: backendcloud@163.com   微信    			 			 			 			var isMobile &#x3D; navigator.userAgent.match(&#x2F;(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrow">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.backendcloud.cn/images/address-card/erweima.jpg">
+<meta property="article:published_time" content="2017-06-15T06:04:24.000Z">
+<meta property="article:modified_time" content="2023-03-14T09:01:00.428Z">
+<meta property="article:author" content="后端云">
+<meta property="article:tag" content="kubevirt openstack linux  虚拟机 容器 裸机 微服务 函数计算 kubernetes 异构计算 人工智能">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.backendcloud.cn/images/address-card/erweima.jpg">
+
+
+<link rel="icon" href="/img/avatar-for3hexo.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?2858b2d509d28416712739c9a6a31204";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta name="generator" content="Hexo 5.4.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar-for3hexo.png" />
+</a>
+<div class="author">
+    <span>后端云</span>
+</div>
+
+<div class="icon">
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(251)</small></div></li>
+    
+        
+            
+            <li><div data-rel="编程">编程<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="生活">生活<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="网站里程碑">网站里程碑<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="业界">业界<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="云原生">云原生<small>(113)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Devops">Devops<small>(20)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Fuchsia">Fuchsia<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="NFV">NFV<small>(16)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Openstack_dev">Openstack_dev<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Openstack_op">Openstack_op<small>(35)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Tools">Tools<small>(33)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="251">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>4G</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>5G</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>安装</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>边缘计算</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>边缘云</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>参与</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>插件</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>产业趋势</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>产业需求</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>成熟</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>持续集成</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>存储</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>多级跳转</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>孵化</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>工具</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>公共镜像仓库</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>管理体制</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>广告</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>归档</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>后端云小项目</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>华为</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>会员</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>会员制</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>集成</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>脚本</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>开发</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>开源</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>美国</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>目标</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>内存</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>配置</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>破解</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>热迁移</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>日本</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>上游关系</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>生命周期</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>生态</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>隧道</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>提案</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>网络</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>效率</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>虚拟机</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>印象笔记国内版</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>源码分析</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>云硬盘</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>云原生</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>运维</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>运营商</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>制作镜像</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>中心云</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>转发</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>自动化测试</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>子项目</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>aggregation</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>AI</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ansible</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>API</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>async</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>available zone</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Badges</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Bazel</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>bazeldnf</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Blog</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Board</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>bug</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Bug</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Capability</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Centos Stream 9</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>CentOS7.7</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>centos8</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Ceph</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ChatGPT</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>CI/CD</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>CICD</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Cilium</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cinder</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Cinder</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cinder-csi-plugin</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>client-go</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Client-Go</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cni</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Collectd</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>CPU</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cpu-pinning</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cpu绑定</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cpu核绑定</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Cyborg</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>deploy</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>devops</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>docker</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Docker</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Doctor</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DPDK</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DRBD</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DSL</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ETSI</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>evacuate</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Fluentd</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>FPGA</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Game</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>gerrit</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>git flow</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Github</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Github Action</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Go</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Golang</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Golang库</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Golang源码</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>google</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>gophercloud</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>goreleaser</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Gossip</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GPT</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GPU</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>HA</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hexo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>HNC</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>hosts</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>HRQ</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>https</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Huge Page</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Idea</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>InfluxDB</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>intel</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Intel Clear Container</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>iperf3</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>iptables</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>iSCSI</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>issue</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Istio</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Java</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JDK</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>jenkins</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Jetbrains</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JIRA</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>k3s</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>K3S</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>k8s</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>K8S</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Kata Containers</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Knative</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Knative Serving</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Kourier</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>KSM</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Kube-OVN</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>kube-proxy</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>kubeconfig</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>KubeEdge</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Kubernetes</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Kubernetes API</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>KubeVirt</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>KubeVirt CI</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>KubeVirtCI</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>kvm2</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Load Balance</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Longhorn</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>LVS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>mac</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>macvtap</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>macvtap-cni</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>make</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>masakari</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Masakari</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Metrics</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>minikube</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>multus-cni</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>NB-IoT</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>nodejs</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Notion</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Notion AI</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Nova</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>nova-scheduler</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>noVNC</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>numa</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>NUMA</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Ocata</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>OOMkilled</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Openstack</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Openstack API</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Openstack Ocata</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Openstack Pike</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>openstack token管理</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>OpenYurt</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>OPNFV Prediction</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>overhead</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ovs</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ovs cni</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>OVS-DPDK</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>parameter</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>passthrough</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>PCI</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Pike</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>placement</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>PLG</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>pod</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Pod</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>POWER</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>pr</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>privileged</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Profile</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Prometheus</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Prow</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>PyCharm</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>qemu</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>QQ</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Radix树</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Raft</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>RAID</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>React</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Region</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Rook</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>RT</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Rust</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>selinux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>serverless</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Serverless</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Serverwalker</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Service</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Spring Boot 3</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>spring-boot</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SR-IOV</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>sriov</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Starlark</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Stein</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Storage Driver</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Switch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SYS_TIME</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>systemd</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Tekton</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>template</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>theme</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Tools</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Trie树</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>TSC</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tunnel</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Typora</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>userspace cni</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>userspace-cni</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>vdbench</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>vim</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>virt-lancher</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Vitrage</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>VM HA</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>vnc</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>VNFD</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>vue</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>widget</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>win</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>win10</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>windows</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>workspace</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>xshell</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>yum</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 云原生 "
+           href="/2023/03/14/tensile-kube-intro/"
+           data-tag="Serverless"
+           data-author="" >
+            <span class="post-title" title="tensile-kube 简介">tensile-kube 简介</span>
+            <span class="post-date" title="2023-03-14 17:28:42">2023/03/14</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2023/03/13/promthues-remote-write/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Promthues远程写源码分析">Promthues远程写源码分析</span>
+            <span class="post-date" title="2023-03-13 18:50:32">2023/03/13</span>
+        </a>
+        
+        <a  class="全部文章 网站里程碑 "
+           href="/2023/03/10/come-back/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="这是个严肃的平台">这是个严肃的平台</span>
+            <span class="post-date" title="2023-03-10 18:43:31">2023/03/10</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2023/03/06/serverless-history/"
+           data-tag="Serverless"
+           data-author="" >
+            <span class="post-title" title="Serverless的演进历程">Serverless的演进历程</span>
+            <span class="post-date" title="2023-03-06 19:06:51">2023/03/06</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2023/03/03/serverless-several-concepts/"
+           data-tag="Serverless"
+           data-author="" >
+            <span class="post-title" title="Serverless 简单直观解释">Serverless 简单直观解释</span>
+            <span class="post-date" title="2023-03-03 12:53:15">2023/03/03</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2023/02/28/pod-overhead/"
+           data-tag="pod,overhead"
+           data-author="" >
+            <span class="post-title" title="Pod Overhead">Pod Overhead</span>
+            <span class="post-date" title="2023-02-28 19:19:22">2023/02/28</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2023/02/27/ai-compete/"
+           data-tag="ChatGPT,AI,Notion AI,GPT"
+           data-author="" >
+            <span class="post-title" title="AI之间都这么卷了吗！本是同根生，相煎何太急！">AI之间都这么卷了吗！本是同根生，相煎何太急！</span>
+            <span class="post-date" title="2023-02-27 19:01:08">2023/02/27</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2023/02/14/usage-based-scheduling/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="分析下上篇的ChatGPT demo4不能完成的需求的实现思路">分析下上篇的ChatGPT demo4不能完成的需求的实现思路</span>
+            <span class="post-date" title="2023-02-14 12:06:52">2023/02/14</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2023/02/13/chatgpt-scheduler/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ChatGPT云原生开发实践 试用ChatGPT做Kubernetes Scheduler开发">ChatGPT云原生开发实践 试用ChatGPT做Kubernetes Scheduler开发</span>
+            <span class="post-date" title="2023-02-13 12:15:05">2023/02/13</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2023/02/02/notion-ai/"
+           data-tag="AI,Notion"
+           data-author="" >
+            <span class="post-title" title="Notion AI 使用感受">Notion AI 使用感受</span>
+            <span class="post-date" title="2023-02-02 13:13:48">2023/02/02</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2023/02/02/ipv6-kernel-para/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ipv6相关内核参数配置的优化实践">ipv6相关内核参数配置的优化实践</span>
+            <span class="post-date" title="2023-02-02 07:44:11">2023/02/02</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2023/02/01/ChatGPT-feeling/"
+           data-tag="ChatGPT"
+           data-author="" >
+            <span class="post-title" title="ChatGPT使用一段时间后的感受">ChatGPT使用一段时间后的感受</span>
+            <span class="post-date" title="2023-02-01 12:57:47">2023/02/01</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2023/01/29/chatGPT-1/"
+           data-tag="ChatGPT"
+           data-author="" >
+            <span class="post-title" title="试用ChatGPT来辅助工作 之 写代码">试用ChatGPT来辅助工作 之 写代码</span>
+            <span class="post-date" title="2023-01-29 13:03:23">2023/01/29</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2023/01/18/git-dir/"
+           data-tag="Git"
+           data-author="" >
+            <span class="post-title" title=".git 目录的内部结构">.git 目录的内部结构</span>
+            <span class="post-date" title="2023-01-18 18:37:35">2023/01/18</span>
+        </a>
+        
+        <a  class="全部文章 网站里程碑 "
+           href="/2023/01/17/en/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="后端云网站有英文版了">后端云网站有英文版了</span>
+            <span class="post-date" title="2023-01-17 12:38:33">2023/01/17</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2023/01/11/k8s-op-5/"
+           data-tag="运维"
+           data-author="" >
+            <span class="post-title" title="Kubernetes 运维记录（5）">Kubernetes 运维记录（5）</span>
+            <span class="post-date" title="2023-01-11 13:01:06">2023/01/11</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2023/01/10/k8s-op-4/"
+           data-tag="运维"
+           data-author="" >
+            <span class="post-title" title="Kubernetes 运维记录（4）">Kubernetes 运维记录（4）</span>
+            <span class="post-date" title="2023-01-10 13:01:06">2023/01/10</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/12/16/client-go-10/"
+           data-tag="client-go"
+           data-author="" >
+            <span class="post-title" title="client-go 源码分析（10） - 使用client-go实现一个简单controller的例子">client-go 源码分析（10） - 使用client-go实现一个简单controller的例子</span>
+            <span class="post-date" title="2022-12-16 12:38:33">2022/12/16</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/12/16/golang-time-2/"
+           data-tag="Golang"
+           data-author="" >
+            <span class="post-title" title="Golang标准库time（2） - timer和ticker">Golang标准库time（2） - timer和ticker</span>
+            <span class="post-date" title="2022-12-16 08:44:01">2022/12/16</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/12/15/client-go-9/"
+           data-tag="client-go"
+           data-author="" >
+            <span class="post-title" title="client-go 源码分析（9） - workerqueue之限速队列RateLimitingQueue">client-go 源码分析（9） - workerqueue之限速队列RateLimitingQueue</span>
+            <span class="post-date" title="2022-12-15 12:10:13">2022/12/15</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/12/14/golang-time-1/"
+           data-tag="Golang"
+           data-author="" >
+            <span class="post-title" title="Golang标准库time（1） - 程序员需要相信的关于时间的谎言 时间可以倒流">Golang标准库time（1） - 程序员需要相信的关于时间的谎言 时间可以倒流</span>
+            <span class="post-date" title="2022-12-14 18:50:31">2022/12/14</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/12/14/client-go-8/"
+           data-tag="client-go"
+           data-author="" >
+            <span class="post-title" title="client-go 源码分析（8） - workerqueue之延时队列DelayingQueue">client-go 源码分析（8） - workerqueue之延时队列DelayingQueue</span>
+            <span class="post-date" title="2022-12-14 12:59:07">2022/12/14</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/12/14/client-go-7/"
+           data-tag="client-go"
+           data-author="" >
+            <span class="post-title" title="client-go 源码分析（7） - workerqueue之普通队列Queue">client-go 源码分析（7） - workerqueue之普通队列Queue</span>
+            <span class="post-date" title="2022-12-14 12:35:57">2022/12/14</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/12/12/golang-std-heap/"
+           data-tag="Golang"
+           data-author="" >
+            <span class="post-title" title="Golang标准库 container/heap">Golang标准库 container/heap</span>
+            <span class="post-date" title="2022-12-12 18:58:25">2022/12/12</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/12/12/golang-std-ring/"
+           data-tag="Golang"
+           data-author="" >
+            <span class="post-title" title="Golang标准库 container/ring">Golang标准库 container/ring</span>
+            <span class="post-date" title="2022-12-12 12:15:39">2022/12/12</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/12/12/golang-std-list/"
+           data-tag="Golang"
+           data-author="" >
+            <span class="post-title" title="Golang标准库 container/list">Golang标准库 container/list</span>
+            <span class="post-date" title="2022-12-12 12:15:17">2022/12/12</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/12/08/golang-rate-3/"
+           data-tag="client-go"
+           data-author="" >
+            <span class="post-title" title="Golang 限流器（3） - uber 开源限流器">Golang 限流器（3） - uber 开源限流器</span>
+            <span class="post-date" title="2022-12-08 12:55:52">2022/12/08</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/12/07/golang-rate-2/"
+           data-tag="client-go"
+           data-author="" >
+            <span class="post-title" title="Golang 限流器（2） - beefsack个人的开源 限流器">Golang 限流器（2） - beefsack个人的开源 限流器</span>
+            <span class="post-date" title="2022-12-07 13:14:44">2022/12/07</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/12/07/golang-rate-1/"
+           data-tag="client-go"
+           data-author="" >
+            <span class="post-title" title="Golang 限流器（1） - Golang 标准库限流器">Golang 限流器（1） - Golang 标准库限流器</span>
+            <span class="post-date" title="2022-12-07 12:55:52">2022/12/07</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/12/06/client-go-6/"
+           data-tag="client-go"
+           data-author="" >
+            <span class="post-title" title="client-go 源码分析（6） - DeltaFIFO">client-go 源码分析（6） - DeltaFIFO</span>
+            <span class="post-date" title="2022-12-06 15:23:04">2022/12/06</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/12/05/client-go-5/"
+           data-tag="client-go"
+           data-author="" >
+            <span class="post-title" title="client-go 源码分析（5） - informer机制中的本地存储indexer">client-go 源码分析（5） - informer机制中的本地存储indexer</span>
+            <span class="post-date" title="2022-12-05 18:16:20">2022/12/05</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/11/30/k8s-op-3/"
+           data-tag="运维"
+           data-author="" >
+            <span class="post-title" title="Kubernetes 运维记录（3）">Kubernetes 运维记录（3）</span>
+            <span class="post-date" title="2022-11-30 18:56:08">2022/11/30</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/11/29/springboot3/"
+           data-tag="Spring Boot 3"
+           data-author="" >
+            <span class="post-title" title="云原生时代的Spring Boot 3.0 - GraalVM原生镜像，启动速度提升近30倍">云原生时代的Spring Boot 3.0 - GraalVM原生镜像，启动速度提升近30倍</span>
+            <span class="post-date" title="2022-11-29 12:33:44">2022/11/29</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/11/25/client-go-4/"
+           data-tag="client-go"
+           data-author="" >
+            <span class="post-title" title="client-go 源码分析（4） - ClientSet客户端 和 DynamicClient客户端">client-go 源码分析（4） - ClientSet客户端 和 DynamicClient客户端</span>
+            <span class="post-date" title="2022-11-25 20:24:49">2022/11/25</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/11/25/client-go-3/"
+           data-tag="client-go"
+           data-author="" >
+            <span class="post-title" title="client-go 源码分析（3） - rest模块">client-go 源码分析（3） - rest模块</span>
+            <span class="post-date" title="2022-11-25 18:40:38">2022/11/25</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/11/25/client-go-2/"
+           data-tag="client-go"
+           data-author="" >
+            <span class="post-title" title="client-go 源码分析（2） - discovery模块：discovery cache">client-go 源码分析（2） - discovery模块：discovery cache</span>
+            <span class="post-date" title="2022-11-25 10:06:45">2022/11/25</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/11/24/client-go-1/"
+           data-tag="client-go"
+           data-author="" >
+            <span class="post-title" title="client-go 源码分析（1） - discovery模块：discoveryclient获取所有的gv和gvr">client-go 源码分析（1） - discovery模块：discoveryclient获取所有的gv和gvr</span>
+            <span class="post-date" title="2022-11-24 12:21:32">2022/11/24</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/11/23/go-escape/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Golang的逃逸分析和C以及Rust的此类问题的处理对比">Golang的逃逸分析和C以及Rust的此类问题的处理对比</span>
+            <span class="post-date" title="2022-11-23 12:43:35">2022/11/23</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/11/17/hrq-1/"
+           data-tag="HRQ,HNC"
+           data-author="" >
+            <span class="post-title" title="HRQ (Hierarchical Resource Quotas 层级资源配额)（1）">HRQ (Hierarchical Resource Quotas 层级资源配额)（1）</span>
+            <span class="post-date" title="2022-11-17 19:09:49">2022/11/17</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/11/17/k8s-op-2/"
+           data-tag="运维"
+           data-author="" >
+            <span class="post-title" title="Kubernetes 运维记录（2）">Kubernetes 运维记录（2）</span>
+            <span class="post-date" title="2022-11-17 18:56:08">2022/11/17</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/11/16/kubevirt-use-virtio-transitional/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Kubevirt virtio model">Kubevirt virtio model</span>
+            <span class="post-date" title="2022-11-16 18:33:00">2022/11/16</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/11/04/golang-object/"
+           data-tag="Golang"
+           data-author="" >
+            <span class="post-title" title="Golang面向对象中易混淆的几个概念">Golang面向对象中易混淆的几个概念</span>
+            <span class="post-date" title="2022-11-04 13:01:06">2022/11/04</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/11/02/golang-map/"
+           data-tag="Golang源码"
+           data-author="" >
+            <span class="post-title" title="map在golang的底层实现和源码分析">map在golang的底层实现和源码分析</span>
+            <span class="post-date" title="2022-11-02 18:27:47">2022/11/02</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/10/21/web-framework-design/"
+           data-tag="Golang"
+           data-author="" >
+            <span class="post-title" title="Web框架的设计方案和Go源码实现">Web框架的设计方案和Go源码实现</span>
+            <span class="post-date" title="2022-10-21 19:28:18">2022/10/21</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/10/21/radix-route/"
+           data-tag="Radix树"
+           data-author="" >
+            <span class="post-title" title="http基数树路由算法和Go源码分析">http基数树路由算法和Go源码分析</span>
+            <span class="post-date" title="2022-10-21 12:36:54">2022/10/21</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/10/20/trie-route/"
+           data-tag="Trie树"
+           data-author="" >
+            <span class="post-title" title="http前缀树路由算法和Go源码分析">http前缀树路由算法和Go源码分析</span>
+            <span class="post-date" title="2022-10-20 11:36:54">2022/10/20</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/10/18/go-cache/"
+           data-tag="Golang库"
+           data-author="" >
+            <span class="post-title" title="Golang缓存库 go-cache 源码分析">Golang缓存库 go-cache 源码分析</span>
+            <span class="post-date" title="2022-10-18 18:54:10">2022/10/18</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2022/09/26/op-memo-2022/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Openstack运维常见问题记录(5)">Openstack运维常见问题记录(5)</span>
+            <span class="post-date" title="2022-09-26 18:24:36">2022/09/26</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/09/22/ovs-dpdk/"
+           data-tag="OVS-DPDK"
+           data-author="" >
+            <span class="post-title" title="OVS-DPDK">OVS-DPDK</span>
+            <span class="post-date" title="2022-09-22 18:34:24">2022/09/22</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/09/20/dpdk-build/"
+           data-tag="DPDK"
+           data-author="" >
+            <span class="post-title" title="编译DPDK">编译DPDK</span>
+            <span class="post-date" title="2022-09-20 18:19:50">2022/09/20</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/09/16/iscsi/"
+           data-tag="iSCSI,Longhorn"
+           data-author="" >
+            <span class="post-title" title="iSCSI 手动">iSCSI 手动</span>
+            <span class="post-date" title="2022-09-16 20:20:11">2022/09/16</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2022/09/15/drbd/"
+           data-tag="DRBD"
+           data-author="" >
+            <span class="post-title" title="DRBD 的部署和使用">DRBD 的部署和使用</span>
+            <span class="post-date" title="2022-09-15 12:54:52">2022/09/15</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/09/14/kube-ovn-on-k3s/"
+           data-tag="k3s,Kube-OVN"
+           data-author="" >
+            <span class="post-title" title="Kube-OVN 在 k3s 上的简单使用">Kube-OVN 在 k3s 上的简单使用</span>
+            <span class="post-date" title="2022-09-14 12:51:17">2022/09/14</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/09/13/k8s-op-1/"
+           data-tag="运维"
+           data-author="" >
+            <span class="post-title" title="Kubernetes 运维记录（1）">Kubernetes 运维记录（1）</span>
+            <span class="post-date" title="2022-09-13 18:14:49">2022/09/13</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/09/08/docker-storage-driver/"
+           data-tag="Docker,Storage Driver"
+           data-author="" >
+            <span class="post-title" title="Docker Storage Driver - Overlay2">Docker Storage Driver - Overlay2</span>
+            <span class="post-date" title="2022-09-08 18:53:18">2022/09/08</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/09/02/rook-deploy/"
+           data-tag="Ceph,Rook"
+           data-author="" >
+            <span class="post-title" title="Rook Deploy">Rook Deploy</span>
+            <span class="post-date" title="2022-09-02 18:59:35">2022/09/02</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/09/02/k8s-service/"
+           data-tag="Kubernetes"
+           data-author="" >
+            <span class="post-title" title="Kubernetes Service">Kubernetes Service</span>
+            <span class="post-date" title="2022-09-02 13:12:38">2022/09/02</span>
+        </a>
+        
+        <a  class="全部文章 "
+           href="/2022/09/01/cilium-replace-kube-proxy/"
+           data-tag="Cilium,kube-proxy"
+           data-author="" >
+            <span class="post-title" title="Cilium完全替换kube-proxy">Cilium完全替换kube-proxy</span>
+            <span class="post-date" title="2022-09-01 18:14:57">2022/09/01</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/09/01/cilium-install/"
+           data-tag="Cilium"
+           data-author="" >
+            <span class="post-title" title="Cilium install">Cilium install</span>
+            <span class="post-date" title="2022-09-01 13:25:10">2022/09/01</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/08/31/kubevirtci-for-chinanet/"
+           data-tag="KubeVirt CI"
+           data-author="" >
+            <span class="post-title" title="KubeVirt CI 适配国内网络">KubeVirt CI 适配国内网络</span>
+            <span class="post-date" title="2022-08-31 12:58:50">2022/08/31</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/08/30/istio-getting-started/"
+           data-tag="Istio"
+           data-author="" >
+            <span class="post-title" title="Istio getting-started">Istio getting-started</span>
+            <span class="post-date" title="2022-08-30 18:15:40">2022/08/30</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/08/26/knative-serving-flowchart/"
+           data-tag="Knative"
+           data-author="" >
+            <span class="post-title" title="Knative Serving flowchart">Knative Serving flowchart</span>
+            <span class="post-date" title="2022-08-26 13:13:22">2022/08/26</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/08/25/knative-getting-started/"
+           data-tag="Knative"
+           data-author="" >
+            <span class="post-title" title="Knative getting-started">Knative getting-started</span>
+            <span class="post-date" title="2022-08-25 22:21:18">2022/08/25</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/08/25/k3s-knative-kourier/"
+           data-tag="k3s,Knative Serving,Kourier"
+           data-author="" >
+            <span class="post-title" title="k3s-knative-kourier Knative Serving hello-world">k3s-knative-kourier Knative Serving hello-world</span>
+            <span class="post-date" title="2022-08-25 18:12:54">2022/08/25</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/08/25/k3s-install/"
+           data-tag="k3s"
+           data-author="" >
+            <span class="post-title" title="k3s 部署 和 简单使用 以及 Longhorn的部署和使用">k3s 部署 和 简单使用 以及 Longhorn的部署和使用</span>
+            <span class="post-date" title="2022-08-25 13:09:48">2022/08/25</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2022/08/17/web-terminal/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Web Terminal 预备知识">Web Terminal 预备知识</span>
+            <span class="post-date" title="2022-08-17 18:53:50">2022/08/17</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/08/16/kubevirt-replace-libvirt2/"
+           data-tag="KubeVirt,KubeVirtCI"
+           data-author="" >
+            <span class="post-title" title="KubeVirt替换virt-lantch中的libvirt和qemu-kvm的版本(高版本到低版本)">KubeVirt替换virt-lantch中的libvirt和qemu-kvm的版本(高版本到低版本)</span>
+            <span class="post-date" title="2022-08-16 13:20:25">2022/08/16</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/08/12/yum-gpg/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="创建一个带GPG-signed(gpgkey)的yum源">创建一个带GPG-signed(gpgkey)的yum源</span>
+            <span class="post-date" title="2022-08-12 20:41:57">2022/08/12</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/08/12/bazeldnf-demo/"
+           data-tag="Bazel,bazeldnf"
+           data-author="" >
+            <span class="post-title" title="bazeldnf 的简单使用">bazeldnf 的简单使用</span>
+            <span class="post-date" title="2022-08-12 18:59:38">2022/08/12</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/08/12/kubevirt-replace-libvirt/"
+           data-tag="KubeVirt,KubeVirtCI"
+           data-author="" >
+            <span class="post-title" title="KubeVirt替换virt-lantch中的libvirt和qemu-kvm的版本">KubeVirt替换virt-lantch中的libvirt和qemu-kvm的版本</span>
+            <span class="post-date" title="2022-08-12 18:49:38">2022/08/12</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/08/12/libvirt-compile/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="编译 Libvirt 源码 并 创建yum源">编译 Libvirt 源码 并 创建yum源</span>
+            <span class="post-date" title="2022-08-12 18:40:38">2022/08/12</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2022/08/11/rules-docker-for-insecure-registries-kubevirt/"
+           data-tag="后端云小项目"
+           data-author="" >
+            <span class="post-title" title="rules_docker_for_insecure_registries for KubeVirt">rules_docker_for_insecure_registries for KubeVirt</span>
+            <span class="post-date" title="2022-08-11 18:56:44">2022/08/11</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2022/08/09/jetbrains-2022-2/"
+           data-tag="Jetbrains,破解"
+           data-author="" >
+            <span class="post-title" title="Jetbrains全家桶2022.2 全平台破解">Jetbrains全家桶2022.2 全平台破解</span>
+            <span class="post-date" title="2022-08-09 13:15:39">2022/08/09</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2022/08/04/rules-docker-for-insecure-registries/"
+           data-tag="后端云小项目"
+           data-author="" >
+            <span class="post-title" title="发布一个开源小项目 rules_docker_for_insecure_registries">发布一个开源小项目 rules_docker_for_insecure_registries</span>
+            <span class="post-date" title="2022-08-04 18:34:06">2022/08/04</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/08/03/kubevirtci-make-virt-lancher-image/"
+           data-tag="KubeVirt CI"
+           data-author="" >
+            <span class="post-title" title="kubevirtci make virt-lancher image">kubevirtci make virt-lancher image</span>
+            <span class="post-date" title="2022-08-03 19:34:27">2022/08/03</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/08/03/kubevirtci-make-manifests/"
+           data-tag="KubeVirt CI"
+           data-author="" >
+            <span class="post-title" title="kubevirtci make manifests">kubevirtci make manifests</span>
+            <span class="post-date" title="2022-08-03 19:33:44">2022/08/03</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2022/08/02/bazel-genrule/"
+           data-tag="Bazel"
+           data-author="" >
+            <span class="post-title" title="Bazel genrule">Bazel genrule</span>
+            <span class="post-date" title="2022-08-02 20:32:59">2022/08/02</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/08/02/kubevirt-technology-comparison/"
+           data-tag="KubeVirt"
+           data-author="" >
+            <span class="post-title" title="KubeVirt和其他技术的对比">KubeVirt和其他技术的对比</span>
+            <span class="post-date" title="2022-08-02 18:31:57">2022/08/02</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2022/08/01/bazel-remote-cache/"
+           data-tag="Bazel"
+           data-author="" >
+            <span class="post-title" title="Bazel remote cache">Bazel remote cache</span>
+            <span class="post-date" title="2022-08-01 13:14:49">2022/08/01</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2022/07/29/docker-docker/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker-Docker">Docker-Docker</span>
+            <span class="post-date" title="2022-07-29 19:08:43">2022/07/29</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2022/07/27/bazel-grpc-demo/"
+           data-tag="Bazel"
+           data-author="" >
+            <span class="post-title" title="Bazel 构建 gRPC server&amp;client">Bazel 构建 gRPC server&amp;client</span>
+            <span class="post-date" title="2022-07-27 19:01:25">2022/07/27</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2022/07/27/bazel-protobuf-demo/"
+           data-tag="Bazel"
+           data-author="" >
+            <span class="post-title" title="Bazel 构建 protobuf">Bazel 构建 protobuf</span>
+            <span class="post-date" title="2022-07-27 13:28:37">2022/07/27</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2022/07/27/bazel-rules-docker-demo/"
+           data-tag="Bazel"
+           data-author="" >
+            <span class="post-title" title="Bazel rules_docker 使用">Bazel rules_docker 使用</span>
+            <span class="post-date" title="2022-07-27 13:22:53">2022/07/27</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2022/07/26/bazel-extension-demo/"
+           data-tag="Bazel"
+           data-author="" >
+            <span class="post-title" title="扩展 Bazel 的构建语言">扩展 Bazel 的构建语言</span>
+            <span class="post-date" title="2022-07-26 13:03:16">2022/07/26</span>
+        </a>
+        
+        <a  class="全部文章 Fuchsia "
+           href="/2022/07/25/deno-hello/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello, Deno">Hello, Deno</span>
+            <span class="post-date" title="2022-07-25 13:17:15">2022/07/25</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/07/22/kubevirtci-libvirt-version-image-script/"
+           data-tag="KubeVirt CI"
+           data-author="" >
+            <span class="post-title" title="用于打包指定libvirt版本的镜像的脚本">用于打包指定libvirt版本的镜像的脚本</span>
+            <span class="post-date" title="2022-07-22 18:42:23">2022/07/22</span>
+        </a>
+        
+        <a  class="全部文章 网站里程碑 "
+           href="/2022/07/21/change-dir/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="优化后端云网站的部分的分类/标签/标题">优化后端云网站的部分的分类/标签/标题</span>
+            <span class="post-date" title="2022-07-21 21:57:29">2022/07/21</span>
+        </a>
+        
+        <a  class="全部文章 Fuchsia "
+           href="/2022/07/21/wasm-hello/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="WebAssembly hello-world">WebAssembly hello-world</span>
+            <span class="post-date" title="2022-07-21 12:38:55">2022/07/21</span>
+        </a>
+        
+        <a  class="全部文章 Fuchsia "
+           href="/2022/07/20/dart-isolate/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Dart 多线程">Dart 多线程</span>
+            <span class="post-date" title="2022-07-20 13:17:28">2022/07/20</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/07/19/kubevirtci-k8s-provision-fetch-images/"
+           data-tag="KubeVirt CI"
+           data-author="" >
+            <span class="post-title" title="k8s-provision - 获取镜像">k8s-provision - 获取镜像</span>
+            <span class="post-date" title="2022-07-19 19:06:52">2022/07/19</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/07/18/kubevirtci-packer/"
+           data-tag="KubeVirt CI"
+           data-author="" >
+            <span class="post-title" title="packer基本使用">packer基本使用</span>
+            <span class="post-date" title="2022-07-18 20:23:32">2022/07/18</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/07/18/kubevirtci-virt-sysprep/"
+           data-tag="KubeVirt CI"
+           data-author="" >
+            <span class="post-title" title="virt-sysprep基本使用">virt-sysprep基本使用</span>
+            <span class="post-date" title="2022-07-18 19:50:35">2022/07/18</span>
+        </a>
+        
+        <a  class="全部文章 Fuchsia "
+           href="/2022/07/18/modern-pl/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="现代编程语言发展趋势">现代编程语言发展趋势</span>
+            <span class="post-date" title="2022-07-18 11:58:32">2022/07/18</span>
+        </a>
+        
+        <a  class="全部文章 Fuchsia "
+           href="/2022/07/18/rust-ecology/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Rust生态的现状和未来">Rust生态的现状和未来</span>
+            <span class="post-date" title="2022-07-18 08:35:32">2022/07/18</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2022/07/14/prow-github-actions/"
+           data-tag="Github Action,Prow"
+           data-author="" >
+            <span class="post-title" title="prow-github-actions">prow-github-actions</span>
+            <span class="post-date" title="2022-07-14 18:52:47">2022/07/14</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/07/14/kubevirtci-bazelisk/"
+           data-tag="KubeVirt CI"
+           data-author="" >
+            <span class="post-title" title="bazelisk简介">bazelisk简介</span>
+            <span class="post-date" title="2022-07-14 18:40:06">2022/07/14</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2022/07/13/bazel-go-hello/"
+           data-tag="Bazel,KubeVirt CI"
+           data-author="" >
+            <span class="post-title" title="Bazel Golang hello-world">Bazel Golang hello-world</span>
+            <span class="post-date" title="2022-07-13 18:33:48">2022/07/13</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2022/07/13/memo-disk-expand/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="一次 VMWare Disk 扩容记录">一次 VMWare Disk 扩容记录</span>
+            <span class="post-date" title="2022-07-13 18:28:22">2022/07/13</span>
+        </a>
+        
+        <a  class="全部文章 Fuchsia "
+           href="/2022/07/12/rust-fisrt/"
+           data-tag="Rust"
+           data-author="" >
+            <span class="post-title" title="初识Rust">初识Rust</span>
+            <span class="post-date" title="2022-07-12 21:01:35">2022/07/12</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/07/12/kubevirtci-module-build-centos8/"
+           data-tag="KubeVirt CI"
+           data-author="" >
+            <span class="post-title" title="build CentOS Stream 8">build CentOS Stream 8</span>
+            <span class="post-date" title="2022-07-12 20:08:25">2022/07/12</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/07/12/kubevirtci-basic-vagrant/"
+           data-tag="KubeVirt CI"
+           data-author="" >
+            <span class="post-title" title="Vagrant基本使用">Vagrant基本使用</span>
+            <span class="post-date" title="2022-07-12 19:50:45">2022/07/12</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/07/11/kubevirtci-basic-podman/"
+           data-tag="KubeVirt CI"
+           data-author="" >
+            <span class="post-title" title="Podman基本使用">Podman基本使用</span>
+            <span class="post-date" title="2022-07-11 19:17:40">2022/07/11</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/07/08/kubevirtci-basic-docker-gosu/"
+           data-tag="KubeVirt CI"
+           data-author="" >
+            <span class="post-title" title="gosu在容器中的使用">gosu在容器中的使用</span>
+            <span class="post-date" title="2022-07-08 18:40:08">2022/07/08</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/07/07/kubevirtci-basic-docker-build/"
+           data-tag="KubeVirt CI"
+           data-author="" >
+            <span class="post-title" title="几种特别的镜像构建">几种特别的镜像构建</span>
+            <span class="post-date" title="2022-07-07 19:52:25">2022/07/07</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2022/07/05/efficiency-tools/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="效率工具">效率工具</span>
+            <span class="post-date" title="2022-07-05 08:15:40">2022/07/05</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2022/07/04/bazel-rules-go-simple/"
+           data-tag="Bazel"
+           data-author="" >
+            <span class="post-title" title="一步步学写Bazel lib&amp;rules （2） - 写一个简单的 go rules">一步步学写Bazel lib&amp;rules （2） - 写一个简单的 go rules</span>
+            <span class="post-date" title="2022-07-04 18:52:19">2022/07/04</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2022/07/04/bazel-lib-rules-skylib/"
+           data-tag="Bazel"
+           data-author="" >
+            <span class="post-title" title="一步步学写Bazel lib&amp;rules （1） - Bazel官方基础库简单浏览">一步步学写Bazel lib&amp;rules （1） - Bazel官方基础库简单浏览</span>
+            <span class="post-date" title="2022-07-04 18:51:43">2022/07/04</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2022/07/01/bazel-starlark/"
+           data-tag="Bazel,Starlark"
+           data-author="" >
+            <span class="post-title" title="Starlark语言">Starlark语言</span>
+            <span class="post-date" title="2022-07-01 18:53:07">2022/07/01</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/06/30/kubevirt-rt/"
+           data-tag="RT,KubeVirt"
+           data-author="" >
+            <span class="post-title" title="KubeVirt对实时内核的支持">KubeVirt对实时内核的支持</span>
+            <span class="post-date" title="2022-06-30 18:29:35">2022/06/30</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/06/27/userspace-cni-code/"
+           data-tag="KubeVirt,源码分析,cni,userspace cni"
+           data-author="" >
+            <span class="post-title" title="intel userspace cni 源码分析">intel userspace cni 源码分析</span>
+            <span class="post-date" title="2022-06-27 18:45:11">2022/06/27</span>
+        </a>
+        
+        <a  class="全部文章 "
+           href="/2022/06/24/userspace-cni-for-kubevirt/"
+           data-tag="KubeVirt,DPDK,userspace cni,ovs cni"
+           data-author="" >
+            <span class="post-title" title="intel userspace cni 适配 Kubevirt">intel userspace cni 适配 Kubevirt</span>
+            <span class="post-date" title="2022-06-24 19:09:27">2022/06/24</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2022/06/23/centos-stream-9-entrap/"
+           data-tag="Centos Stream 9"
+           data-author="" >
+            <span class="post-title" title="Centos Stream 9 git使用报错 error in libcrypto">Centos Stream 9 git使用报错 error in libcrypto</span>
+            <span class="post-date" title="2022-06-23 18:18:14">2022/06/23</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/06/22/kubevirt-make/"
+           data-tag="KubeVirt,make"
+           data-author="" >
+            <span class="post-title" title="KubeVirt重新打包部署流程">KubeVirt重新打包部署流程</span>
+            <span class="post-date" title="2022-06-22 18:27:37">2022/06/22</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/06/20/vm-to-k8s/"
+           data-tag="Kubernetes,KubeVirt,虚拟机"
+           data-author="" >
+            <span class="post-title" title="将虚拟机迁移到Kubernetes">将虚拟机迁移到Kubernetes</span>
+            <span class="post-date" title="2022-06-20 20:55:47">2022/06/20</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/06/20/kubevirt-with-dpdk/"
+           data-tag="KubeVirt,DPDK,userspace-cni"
+           data-author="" >
+            <span class="post-title" title="KubeVirt with DPDK">KubeVirt with DPDK</span>
+            <span class="post-date" title="2022-06-20 19:47:49">2022/06/20</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2022/06/20/remote-desktop/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="公网登录windows自带远程桌面方案">公网登录windows自带远程桌面方案</span>
+            <span class="post-date" title="2022-06-20 19:27:47">2022/06/20</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2022/06/20/joplin/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Joplin试用">Joplin试用</span>
+            <span class="post-date" title="2022-06-20 19:04:51">2022/06/20</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2022/06/15/bazel-hello/"
+           data-tag="Bazel"
+           data-author="" >
+            <span class="post-title" title="BUILD.bazel hello-world">BUILD.bazel hello-world</span>
+            <span class="post-date" title="2022-06-15 19:25:03">2022/06/15</span>
+        </a>
+        
+        <a  class="全部文章 生活 "
+           href="/2022/06/14/wintel-entrap/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="wintel DIY 入坑记">wintel DIY 入坑记</span>
+            <span class="post-date" title="2022-06-14 20:05:17">2022/06/14</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2022/06/13/win-mac/"
+           data-tag="win,intel,mac"
+           data-author="" >
+            <span class="post-title" title="wintel&amp;mac的不同感受">wintel&amp;mac的不同感受</span>
+            <span class="post-date" title="2022-06-13 21:14:07">2022/06/13</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/06/09/macvtap-auto/"
+           data-tag="KubeVirt,macvtap,macvtap-cni,multus-cni"
+           data-author="" >
+            <span class="post-title" title="KubeVirt macvtap虚拟机创建过程 自动实验">KubeVirt macvtap虚拟机创建过程 自动实验</span>
+            <span class="post-date" title="2022-06-09 18:33:57">2022/06/09</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/06/06/macvtap-lab/"
+           data-tag="KubeVirt,macvtap,网络"
+           data-author="" >
+            <span class="post-title" title="KubeVirt macvtap虚拟机创建过程 手动实验">KubeVirt macvtap虚拟机创建过程 手动实验</span>
+            <span class="post-date" title="2022-06-06 18:10:42">2022/06/06</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/06/02/k8s-vnc-win10/"
+           data-tag="KubeVirt,vnc,win10"
+           data-author="" >
+            <span class="post-title" title="vnc远程连接K8S安装和使用win10">vnc远程连接K8S安装和使用win10</span>
+            <span class="post-date" title="2022-06-02 18:36:39">2022/06/02</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/06/02/k8s-4-deploy/"
+           data-tag="deploy"
+           data-author="" >
+            <span class="post-title" title="K8S的常见四种自动化部署方式">K8S的常见四种自动化部署方式</span>
+            <span class="post-date" title="2022-06-02 18:30:13">2022/06/02</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/06/02/kubevirt-tekton-2/"
+           data-tag="CICD,KubeVirt,Tekton"
+           data-author="" >
+            <span class="post-title" title="KubeVirt CICD Tekton (2) - task run:datavolume &amp; ssh-key">KubeVirt CICD Tekton (2) - task run:datavolume &amp; ssh-key</span>
+            <span class="post-date" title="2022-06-02 18:13:07">2022/06/02</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/06/01/kubevirt-tekton-1/"
+           data-tag="CICD,KubeVirt,Tekton"
+           data-author="" >
+            <span class="post-title" title="KubeVirt CICD Tekton (1) - 准备环境 以及 run task:create-vm">KubeVirt CICD Tekton (1) - 准备环境 以及 run task:create-vm</span>
+            <span class="post-date" title="2022-06-01 19:44:23">2022/06/01</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/06/01/tekton-hello/"
+           data-tag="CICD,Tekton"
+           data-author="" >
+            <span class="post-title" title="Kubernetes原生CICD:Tekton hello-world">Kubernetes原生CICD:Tekton hello-world</span>
+            <span class="post-date" title="2022-06-01 18:43:26">2022/06/01</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/05/30/virt-lancher-nw3/"
+           data-tag="KubeVirt,网络,virt-lancher"
+           data-author="" >
+            <span class="post-title" title="KubeVirt网络源码分析（3）- 虚拟机热迁移网络">KubeVirt网络源码分析（3）- 虚拟机热迁移网络</span>
+            <span class="post-date" title="2022-05-30 18:30:24">2022/05/30</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/05/27/virt-lancher-nw2/"
+           data-tag="KubeVirt,网络,virt-lancher"
+           data-author="" >
+            <span class="post-title" title="KubeVirt网络源码分析（2）">KubeVirt网络源码分析（2）</span>
+            <span class="post-date" title="2022-05-27 17:43:21">2022/05/27</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/05/26/virt-lancher-nw/"
+           data-tag="KubeVirt,网络,virt-lancher"
+           data-author="" >
+            <span class="post-title" title="KubeVirt网络源码分析（1）">KubeVirt网络源码分析（1）</span>
+            <span class="post-date" title="2022-05-26 16:19:20">2022/05/26</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/05/18/minikube-driver-kvm2/"
+           data-tag="minikube,kvm2"
+           data-author="" >
+            <span class="post-title" title="minikube config set driver kvm2">minikube config set driver kvm2</span>
+            <span class="post-date" title="2022-05-18 21:46:32">2022/05/18</span>
+        </a>
+        
+        <a  class="全部文章 网站里程碑 "
+           href="/2022/05/10/invite/"
+           data-tag="pr,issue"
+           data-author="" >
+            <span class="post-title" title="协作邀请">协作邀请</span>
+            <span class="post-date" title="2022-05-10 21:17:47">2022/05/10</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2022/05/09/github-profile/"
+           data-tag="goreleaser,Github,Metrics,Profile,Badges"
+           data-author="" >
+            <span class="post-title" title="Github Releases 和 Github Badges">Github Releases 和 Github Badges</span>
+            <span class="post-date" title="2022-05-09 18:29:30">2022/05/09</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/05/07/client-go-example/"
+           data-tag="Go,Kubernetes API,Client-Go,cinder-csi-plugin,Openstack,Cinder"
+           data-author="" >
+            <span class="post-title" title="Go 调用 Kubernetes API 的 几个简单的 example">Go 调用 Kubernetes API 的 几个简单的 example</span>
+            <span class="post-date" title="2022-05-07 10:17:15">2022/05/07</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/05/07/gophercloud-example/"
+           data-tag="Go,Openstack API,gophercloud"
+           data-author="" >
+            <span class="post-title" title="Go 调用 Openstack API 的 几个简单的 example">Go 调用 Openstack API 的 几个简单的 example</span>
+            <span class="post-date" title="2022-05-07 10:05:19">2022/05/07</span>
+        </a>
+        
+        <a  class="全部文章 编程 "
+           href="/2022/05/07/nodejs-iptables/"
+           data-tag="iptables,nodejs,vue,后端云小项目"
+           data-author="" >
+            <span class="post-title" title="开源一个 node.js 防火墙小工具">开源一个 node.js 防火墙小工具</span>
+            <span class="post-date" title="2022-05-07 09:41:28">2022/05/07</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/05/06/deploy-kubevirt/"
+           data-tag="Kubernetes,KubeVirt"
+           data-author="" >
+            <span class="post-title" title="部署 Kubernetes + KubeVirt 以及 KubeVirt的基本使用">部署 Kubernetes + KubeVirt 以及 KubeVirt的基本使用</span>
+            <span class="post-date" title="2022-05-06 14:17:28">2022/05/06</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/05/02/docker-java-demo/"
+           data-tag="docker,公共镜像仓库,制作镜像"
+           data-author="" >
+            <span class="post-title" title="docker hello-world 项目">docker hello-world 项目</span>
+            <span class="post-date" title="2022-05-02 10:13:44">2022/05/02</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/04/24/fusion-dev-env1/"
+           data-tag="minikube,Kubernetes,cinder-csi-plugin,Openstack,cinder"
+           data-author="" >
+            <span class="post-title" title="部署 cinder-csi-plugin 遇到的几个问题">部署 cinder-csi-plugin 遇到的几个问题</span>
+            <span class="post-date" title="2022-04-24 11:00:11">2022/04/24</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2022/04/14/fusion-deploy1/"
+           data-tag="minikube,Kubernetes,Openstack,deploy"
+           data-author="" >
+            <span class="post-title" title="Openstack和Kubernetes融合部署（1） - 准备工作">Openstack和Kubernetes融合部署（1） - 准备工作</span>
+            <span class="post-date" title="2022-04-14 08:02:45">2022/04/14</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2022/04/13/go1.18-workspace/"
+           data-tag="Go,workspace"
+           data-author="" >
+            <span class="post-title" title="Go 1.18 新特性 - 工作区">Go 1.18 新特性 - 工作区</span>
+            <span class="post-date" title="2022-04-13 20:17:47">2022/04/13</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2022/04/12/github-action/"
+           data-tag="Github Action,CICD,Openstack,Docker"
+           data-author="" >
+            <span class="post-title" title="Github Action 补充介绍">Github Action 补充介绍</span>
+            <span class="post-date" title="2022-04-12 13:04:03">2022/04/12</span>
+        </a>
+        
+        <a  class="全部文章 网站里程碑 "
+           href="/2022/04/03/blog-cicd/"
+           data-tag="Github Action,Hexo,Blog,CICD"
+           data-author="" >
+            <span class="post-title" title="Github Action 升级后端云网站 CICD 流程">Github Action 升级后端云网站 CICD 流程</span>
+            <span class="post-date" title="2022-04-03 00:17:47">2022/04/03</span>
+        </a>
+        
+        <a  class="全部文章 编程 "
+           href="/2022/03/25/spring-boot-async-demo/"
+           data-tag="spring-boot,async"
+           data-author="" >
+            <span class="post-title" title="spring-boot异步的example">spring-boot异步的example</span>
+            <span class="post-date" title="2022-03-25 11:24:27">2022/03/25</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2022/02/25/github-action-demo/"
+           data-tag="Github Action,CI/CD,React"
+           data-author="" >
+            <span class="post-title" title="试用Github Action CI/CD流程（创建一个React项目，并打包部署）">试用Github Action CI/CD流程（创建一个React项目，并打包部署）</span>
+            <span class="post-date" title="2022-02-25 11:54:20">2022/02/25</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2022/01/06/notion-widget/"
+           data-tag="Notion,widget"
+           data-author="" >
+            <span class="post-title" title="Notion的页面插入小控件Widget">Notion的页面插入小控件Widget</span>
+            <span class="post-date" title="2022-01-06 11:06:12">2022/01/06</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2022/01/06/notion/"
+           data-tag="Notion,印象笔记国内版"
+           data-author="" >
+            <span class="post-title" title="Notion笔记和印象笔记同时使用的分工">Notion笔记和印象笔记同时使用的分工</span>
+            <span class="post-date" title="2022-01-06 10:28:42">2022/01/06</span>
+        </a>
+        
+        <a  class="全部文章 生活 "
+           href="/2022/01/06/switch/"
+           data-tag="Switch,Game"
+           data-author="" >
+            <span class="post-title" title="Switch游戏推荐">Switch游戏推荐</span>
+            <span class="post-date" title="2022-01-06 09:58:49">2022/01/06</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2021/12/16/idea-plugin/"
+           data-tag="Idea,插件"
+           data-author="" >
+            <span class="post-title" title="Idea 插件推荐">Idea 插件推荐</span>
+            <span class="post-date" title="2021-12-16 17:48:09">2021/12/16</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2021/12/01/PLG/"
+           data-tag="Kubernetes,Pod,PLG"
+           data-author="" >
+            <span class="post-title" title="PLG 实现 Kubernetes Pod 日志收集和展示">PLG 实现 Kubernetes Pod 日志收集和展示</span>
+            <span class="post-date" title="2021-12-01 17:48:46">2021/12/01</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2021/11/30/pod-log-collect/"
+           data-tag="Kubernetes,Pod,Fluentd"
+           data-author="" >
+            <span class="post-title" title="Fluentd 实现 Kubernetes Pod 日志收集">Fluentd 实现 Kubernetes Pod 日志收集</span>
+            <span class="post-date" title="2021-11-30 16:36:50">2021/11/30</span>
+        </a>
+        
+        <a  class="全部文章 编程 "
+           href="/2021/11/23/java-memo/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java项目开发中的点滴记录（1）">Java项目开发中的点滴记录（1）</span>
+            <span class="post-date" title="2021-11-23 15:04:04">2021/11/23</span>
+        </a>
+        
+        <a  class="全部文章 编程 "
+           href="/2021/11/23/jdkbug/"
+           data-tag="JDK,bug"
+           data-author="" >
+            <span class="post-title" title="JDK bug - Encrypt Private Key failed  unrecognized algorithm name  PBEWithSHA1AndDESede">JDK bug - Encrypt Private Key failed  unrecognized algorithm name  PBEWithSHA1AndDESede</span>
+            <span class="post-date" title="2021-11-23 14:22:24">2021/11/23</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2021/09/28/kubernetes-api/"
+           data-tag="Kubernetes API,边缘计算,云原生,中心云,边缘云"
+           data-author="" >
+            <span class="post-title" title="在产品开发中调用Kubernetes API接口遇到的几个问题">在产品开发中调用Kubernetes API接口遇到的几个问题</span>
+            <span class="post-date" title="2021-09-28 17:25:28">2021/09/28</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2021/09/26/git-flow/"
+           data-tag="git flow,git"
+           data-author="" >
+            <span class="post-title" title="开始尝试使用git flow工作流">开始尝试使用git flow工作流</span>
+            <span class="post-date" title="2021-09-26 15:32:59">2021/09/26</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2021/09/15/typora-auto-numbering/"
+           data-tag="Typora,Tools"
+           data-author="" >
+            <span class="post-title" title="Mac版Typora 标题自动编号">Mac版Typora 标题自动编号</span>
+            <span class="post-date" title="2021-09-15 17:36:23">2021/09/15</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2021/09/13/create-kubeconfig/"
+           data-tag="kubeconfig"
+           data-author="" >
+            <span class="post-title" title="云管平台创建资源池租户功能的实现">云管平台创建资源池租户功能的实现</span>
+            <span class="post-date" title="2021-09-13 14:22:18">2021/09/13</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2021/08/10/kubernetes-iperf3-2/"
+           data-tag="Kubernetes,iperf3,Service"
+           data-author="" >
+            <span class="post-title" title="iperf3测试Kubernetes Service的四层性能（下）">iperf3测试Kubernetes Service的四层性能（下）</span>
+            <span class="post-date" title="2021-08-10 07:06:01">2021/08/10</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2021/08/09/kubernetes-iperf3/"
+           data-tag="Kubernetes,iperf3,Service"
+           data-author="" >
+            <span class="post-title" title="iperf3测试Kubernetes Service的四层性能（上）">iperf3测试Kubernetes Service的四层性能（上）</span>
+            <span class="post-date" title="2021-08-09 17:06:01">2021/08/09</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2021/03/12/edge2021/"
+           data-tag="AI,边缘计算,serverless,5G,4G,NB-IoT"
+           data-author="" >
+            <span class="post-title" title="边缘计算2021年展望">边缘计算2021年展望</span>
+            <span class="post-date" title="2021-03-12 09:41:42">2021/03/12</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2021/03/11/jetbrains-mac-m1/"
+           data-tag="Jetbrains,破解"
+           data-author="" >
+            <span class="post-title" title="jetbrains macbook m1版全家桶破解">jetbrains macbook m1版全家桶破解</span>
+            <span class="post-date" title="2021-03-11 17:01:57">2021/03/11</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2021/01/26/edge-think/"
+           data-tag="边缘计算,FPGA,GPU,serverless"
+           data-author="" >
+            <span class="post-title" title="边缘计算的几点思考">边缘计算的几点思考</span>
+            <span class="post-date" title="2021-01-26 17:11:34">2021/01/26</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2021/01/21/kubernetes2edge/"
+           data-tag="Kubernetes,K8S,K3S,OpenYurt,KubeEdge"
+           data-author="" >
+            <span class="post-title" title="K3S, OpenYurt, KubeEdge 主要差异">K3S, OpenYurt, KubeEdge 主要差异</span>
+            <span class="post-date" title="2021-01-21 16:47:45">2021/01/21</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2020/05/27/k8s-op/"
+           data-tag="k8s"
+           data-author="" >
+            <span class="post-title" title="k8s常用操作">k8s常用操作</span>
+            <span class="post-date" title="2020-05-27 17:32:08">2020/05/27</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2020/05/22/k8s-cpubond/"
+           data-tag="Kubernetes,k8s,cpu核绑定"
+           data-author="" >
+            <span class="post-title" title="k8s支持容器核绑定">k8s支持容器核绑定</span>
+            <span class="post-date" title="2020-05-22 16:24:44">2020/05/22</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2020/05/22/k8s-capability/"
+           data-tag="Kubernetes,k8s,Capability,SYS_TIME"
+           data-author="" >
+            <span class="post-title" title="k8s支持Capability机制">k8s支持Capability机制</span>
+            <span class="post-date" title="2020-05-22 15:18:59">2020/05/22</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2020/05/22/pod-mem/"
+           data-tag="Kubernetes,k8s,OOMkilled,privileged"
+           data-author="" >
+            <span class="post-title" title="k8s OOMkilled超出内存限制的容器">k8s OOMkilled超出内存限制的容器</span>
+            <span class="post-date" title="2020-05-22 13:52:15">2020/05/22</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2020/04/16/centos7-7-k8s-3nodes-prometheus/"
+           data-tag="CentOS7.7,k8s,Prometheus"
+           data-author="" >
+            <span class="post-title" title="CentOS7.7部署k8s + Prometheus（1 master + 2 node）">CentOS7.7部署k8s + Prometheus（1 master + 2 node）</span>
+            <span class="post-date" title="2020-04-16 13:46:34">2020/04/16</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2020/04/13/centos7-7-k8s-7nodes/"
+           data-tag="CentOS7.7,k8s"
+           data-author="" >
+            <span class="post-title" title="CentOS7.7部署k8s（3 master + 3 node + 1 client）">CentOS7.7部署k8s（3 master + 3 node + 1 client）</span>
+            <span class="post-date" title="2020-04-13 13:46:34">2020/04/13</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2020/04/10/centos7-7-k8s-3nodes/"
+           data-tag="CentOS7.7,k8s"
+           data-author="" >
+            <span class="post-title" title="CentOS7.7部署k8s（1 master + 2 node）">CentOS7.7部署k8s（1 master + 2 node）</span>
+            <span class="post-date" title="2020-04-10 13:46:34">2020/04/10</span>
+        </a>
+        
+        <a  class="全部文章 云原生 "
+           href="/2020/03/16/centos8installdocker/"
+           data-tag="docker,centos8"
+           data-author="" >
+            <span class="post-title" title="CentOS 8.0 安装docker 报错：Problem: package docker-ce-3:19.03.8-3.el7.x86_64 requires containerd.io &gt;= 1.2.2-3">CentOS 8.0 安装docker 报错：Problem: package docker-ce-3:19.03.8-3.el7.x86_64 requires containerd.io &gt;= 1.2.2-3</span>
+            <span class="post-date" title="2020-03-16 16:04:21">2020/03/16</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_dev "
+           href="/2020/01/09/masakari-task-code/"
+           data-tag="VM HA,Openstack,Masakari,源码分析"
+           data-author="" >
+            <span class="post-title" title="Openstack Masakari task流程源码分析">Openstack Masakari task流程源码分析</span>
+            <span class="post-date" title="2020-01-09 09:18:53">2020/01/09</span>
+        </a>
+        
+        <a  class="全部文章 网站里程碑 "
+           href="/2020/01/01/change-theme/"
+           data-tag="theme"
+           data-author="" >
+            <span class="post-title" title="后端云网站主题 NexT -&gt; 3-hexo">后端云网站主题 NexT -&gt; 3-hexo</span>
+            <span class="post-date" title="2020-01-01 21:13:25">2020/01/01</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2020/01/01/openstackopmemo4/"
+           data-tag="Openstack,devops"
+           data-author="" >
+            <span class="post-title" title="Openstack运维常见问题记录(4)">Openstack运维常见问题记录(4)</span>
+            <span class="post-date" title="2020-01-01 20:28:32">2020/01/01</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2019/09/20/stein-deploy-problem/"
+           data-tag="Stein"
+           data-author="" >
+            <span class="post-title" title="Openstack Stein 部署遇到的问题">Openstack Stein 部署遇到的问题</span>
+            <span class="post-date" title="2019-09-20 18:49:06">2019/09/20</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2019/08/28/jetbrains/"
+           data-tag="Jetbrains,破解"
+           data-author="" >
+            <span class="post-title" title="jetbrains windows版全家桶破解">jetbrains windows版全家桶破解</span>
+            <span class="post-date" title="2019-08-28 15:15:39">2019/08/28</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2019/08/27/tunnel/"
+           data-tag="xshell,tunnel,隧道,工具"
+           data-author="" >
+            <span class="post-title" title="xshell隧道转发的三种类型">xshell隧道转发的三种类型</span>
+            <span class="post-date" title="2019-08-27 15:25:01">2019/08/27</span>
+        </a>
+        
+        <a  class="全部文章 业界 "
+           href="/2019/06/15/huaweijpqa/"
+           data-tag="华为,日本,美国"
+           data-author="" >
+            <span class="post-title" title="任正非5月18日接受日本媒体采访的中文纪要">任正非5月18日接受日本媒体采访的中文纪要</span>
+            <span class="post-date" title="2019-06-15 13:02:34">2019/06/15</span>
+        </a>
+        
+        <a  class="全部文章 业界 "
+           href="/2019/05/21/huaweiyun/"
+           data-tag="华为"
+           data-author="" >
+            <span class="post-title" title="华为云可能也要被美国釜底抽薪">华为云可能也要被美国釜底抽薪</span>
+            <span class="post-date" title="2019-05-21 11:52:58">2019/05/21</span>
+        </a>
+        
+        <a  class="全部文章 业界 "
+           href="/2019/05/20/huaweivsa/"
+           data-tag="华为"
+           data-author="" >
+            <span class="post-title" title="属于华为的荣耀时刻">属于华为的荣耀时刻</span>
+            <span class="post-date" title="2019-05-20 18:28:25">2019/05/20</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2019/04/19/sriov2ovs/"
+           data-tag="sriov,ovs,脚本"
+           data-author="" >
+            <span class="post-title" title="sriov计算节点转ovs计算节点脚本">sriov计算节点转ovs计算节点脚本</span>
+            <span class="post-date" title="2019-04-19 16:50:16">2019/04/19</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2019/04/18/placement/"
+           data-tag="placement"
+           data-author="" >
+            <span class="post-title" title="Openstack Placement">Openstack Placement</span>
+            <span class="post-date" title="2019-04-18 09:14:54">2019/04/18</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2018/10/21/power/"
+           data-tag="POWER"
+           data-author="" >
+            <span class="post-title" title="POWER架构服务器作为计算节点">POWER架构服务器作为计算节点</span>
+            <span class="post-date" title="2018-10-21 16:21:52">2018/10/21</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2018/10/14/sriov/"
+           data-tag="SR-IOV,passthrough"
+           data-author="" >
+            <span class="post-title" title="OpenStack实践SR-IOV计算节点">OpenStack实践SR-IOV计算节点</span>
+            <span class="post-date" title="2018-10-14 05:15:24">2018/10/14</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2018/09/29/openstackopmemo3/"
+           data-tag="Openstack,devops"
+           data-author="" >
+            <span class="post-title" title="Openstack运维常见问题记录(3)">Openstack运维常见问题记录(3)</span>
+            <span class="post-date" title="2018-09-29 20:28:32">2018/09/29</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2018/09/05/ceph/"
+           data-tag="vdbench"
+           data-author="" >
+            <span class="post-title" title="ceph数据存储的几个概念">ceph数据存储的几个概念</span>
+            <span class="post-date" title="2018-09-05 17:32:47">2018/09/05</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2018/08/28/openstackopmemo2/"
+           data-tag="Openstack,devops"
+           data-author="" >
+            <span class="post-title" title="Openstack运维常见问题记录(2)">Openstack运维常见问题记录(2)</span>
+            <span class="post-date" title="2018-08-28 14:48:42">2018/08/28</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2018/08/26/openstackopmemo/"
+           data-tag="Openstack,devops"
+           data-author="" >
+            <span class="post-title" title="Openstack运维常见问题记录(1)">Openstack运维常见问题记录(1)</span>
+            <span class="post-date" title="2018-08-26 18:38:42">2018/08/26</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2018/08/16/2concepts/"
+           data-tag="aggregation,available zone,numa"
+           data-author="" >
+            <span class="post-title" title="Openstack两组容易混淆的概念">Openstack两组容易混淆的概念</span>
+            <span class="post-date" title="2018-08-16 15:08:05">2018/08/16</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2018/07/14/serverwalker/"
+           data-tag="Serverwalker,自动化测试,DSL"
+           data-author="" >
+            <span class="post-title" title="自动化测试工具Serverwalker介绍">自动化测试工具Serverwalker介绍</span>
+            <span class="post-date" title="2018-07-14 11:52:51">2018/07/14</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_dev "
+           href="/2018/07/13/cpupin/"
+           data-tag="cpu绑定"
+           data-author="" >
+            <span class="post-title" title="Openstack中的虚拟机的cpu绑定">Openstack中的虚拟机的cpu绑定</span>
+            <span class="post-date" title="2018-07-13 20:09:41">2018/07/13</span>
+        </a>
+        
+        <a  class="全部文章 业界 "
+           href="/2018/05/10/huawei/"
+           data-tag="华为,运营商"
+           data-author="" >
+            <span class="post-title" title="华为的发展已越来越不需要运营商">华为的发展已越来越不需要运营商</span>
+            <span class="post-date" title="2018-05-10 23:45:05">2018/05/10</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2018/04/14/pike-novnc/"
+           data-tag="Pike,noVNC"
+           data-author="" >
+            <span class="post-title" title="OpenStack Pike dashboard noVNC 不能访问">OpenStack Pike dashboard noVNC 不能访问</span>
+            <span class="post-date" title="2018-04-14 05:18:22">2018/04/14</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2018/04/14/pycharm2018/"
+           data-tag="PyCharm"
+           data-author="" >
+            <span class="post-title" title="JetBrains PyCharm 2018.1.1 x64专业版永久激活">JetBrains PyCharm 2018.1.1 x64专业版永久激活</span>
+            <span class="post-date" title="2018-04-14 04:47:29">2018/04/14</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2018/04/14/vmsystemddel/"
+           data-tag="selinux,qemu,systemd"
+           data-author="" >
+            <span class="post-title" title="vm被systemd删除">vm被systemd删除</span>
+            <span class="post-date" title="2018-04-14 04:30:35">2018/04/14</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2018/04/14/vmcantstart/"
+           data-tag="selinux"
+           data-author="" >
+            <span class="post-title" title="虚拟机无法启动">虚拟机无法启动</span>
+            <span class="post-date" title="2018-04-14 03:15:39">2018/04/14</span>
+        </a>
+        
+        <a  class="全部文章 NFV "
+           href="/2018/01/23/rt-vm/"
+           data-tag="RT"
+           data-author="" >
+            <span class="post-title" title="部署实时OpenStack实例">部署实时OpenStack实例</span>
+            <span class="post-date" title="2018-01-23 16:28:28">2018/01/23</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2018/01/23/scheduler-win-linux/"
+           data-tag="nova-scheduler"
+           data-author="" >
+            <span class="post-title" title="支持windows虚拟机和linux虚拟机分区调度">支持windows虚拟机和linux虚拟机分区调度</span>
+            <span class="post-date" title="2018-01-23 14:40:11">2018/01/23</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2017/12/28/local-yum/"
+           data-tag="yum"
+           data-author="" >
+            <span class="post-title" title="Openstack Pike本地yum源搭建">Openstack Pike本地yum源搭建</span>
+            <span class="post-date" title="2017-12-28 22:20:40">2017/12/28</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2017/12/28/p7-4-shell/"
+           data-tag="Openstack Pike,安装"
+           data-author="" >
+            <span class="post-title" title="脚本安装Openstack Pike">脚本安装Openstack Pike</span>
+            <span class="post-date" title="2017-12-28 20:43:27">2017/12/28</span>
+        </a>
+        
+        <a  class="全部文章 NFV "
+           href="/2017/12/08/kata-containers/"
+           data-tag="Kata Containers,Intel Clear Container,Serverless"
+           data-author="" >
+            <span class="post-title" title="Kata Containers">Kata Containers</span>
+            <span class="post-date" title="2017-12-08 00:27:10">2017/12/08</span>
+        </a>
+        
+        <a  class="全部文章 NFV "
+           href="/2017/11/12/raft-gossip/"
+           data-tag="Raft,Gossip"
+           data-author="" >
+            <span class="post-title" title="Raft算法和Gossip协议">Raft算法和Gossip协议</span>
+            <span class="post-date" title="2017-11-12 12:34:11">2017/11/12</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2017/11/10/vitrage/"
+           data-tag="Vitrage"
+           data-author="" >
+            <span class="post-title" title="Openstack Vitrage（根因分析）">Openstack Vitrage（根因分析）</span>
+            <span class="post-date" title="2017-11-10 08:02:15">2017/11/10</span>
+        </a>
+        
+        <a  class="全部文章 NFV "
+           href="/2017/11/08/RTOS/"
+           data-tag="RT"
+           data-author="" >
+            <span class="post-title" title="实时操作系统">实时操作系统</span>
+            <span class="post-date" title="2017-11-08 15:13:56">2017/11/08</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2017/08/01/raid/"
+           data-tag="RAID"
+           data-author="" >
+            <span class="post-title" title="RAID">RAID</span>
+            <span class="post-date" title="2017-08-01 08:42:40">2017/08/01</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2017/07/31/vm-cpu/"
+           data-tag="Nova,CPU"
+           data-author="" >
+            <span class="post-title" title="云主机的指令集配置">云主机的指令集配置</span>
+            <span class="post-date" title="2017-07-31 05:05:20">2017/07/31</span>
+        </a>
+        
+        <a  class="全部文章 业界 "
+           href="/2017/07/20/yunyingshang-kongjian/"
+           data-tag="运营商"
+           data-author="" >
+            <span class="post-title" title="AI大环境下的运营商">AI大环境下的运营商</span>
+            <span class="post-date" title="2017-07-20 18:51:01">2017/07/20</span>
+        </a>
+        
+        <a  class="全部文章 NFV "
+           href="/2017/07/20/cpu-pinning/"
+           data-tag="cpu-pinning"
+           data-author="" >
+            <span class="post-title" title="cpu-pinning CPU绑定">cpu-pinning CPU绑定</span>
+            <span class="post-date" title="2017-07-20 18:30:18">2017/07/20</span>
+        </a>
+        
+        <a  class="全部文章 NFV "
+           href="/2017/07/20/numa/"
+           data-tag="NUMA"
+           data-author="" >
+            <span class="post-title" title="NUMA 非一致性内存访问">NUMA 非一致性内存访问</span>
+            <span class="post-date" title="2017-07-20 17:47:16">2017/07/20</span>
+        </a>
+        
+        <a  class="全部文章 NFV "
+           href="/2017/07/19/vmem/"
+           data-tag="KSM,Huge Page"
+           data-author="" >
+            <span class="post-title" title="内存虚拟化">内存虚拟化</span>
+            <span class="post-date" title="2017-07-19 05:17:46">2017/07/19</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2017/07/04/resize-error/"
+           data-tag="Nova"
+           data-author="" >
+            <span class="post-title" title="resize失败原因调查">resize失败原因调查</span>
+            <span class="post-date" title="2017-07-04 10:20:06">2017/07/04</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2017/06/30/attach-yunyingpan/"
+           data-tag="云硬盘"
+           data-author="" >
+            <span class="post-title" title="挂载云硬盘">挂载云硬盘</span>
+            <span class="post-date" title="2017-06-30 05:16:38">2017/06/30</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_dev "
+           href="/2017/06/28/ocata-nova-evacuate-bug/"
+           data-tag="Nova,Ocata,Bug"
+           data-author="" >
+            <span class="post-title" title="Ocata nova evacuate bug">Ocata nova evacuate bug</span>
+            <span class="post-date" title="2017-06-28 18:24:18">2017/06/28</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2017/06/28/trigger-build/"
+           data-tag="gerrit,jenkins,持续集成"
+           data-author="" >
+            <span class="post-title" title="gerrit触发jenkins执行脚本自动构建rpm包">gerrit触发jenkins执行脚本自动构建rpm包</span>
+            <span class="post-date" title="2017-06-28 18:17:13">2017/06/28</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2017/06/28/gerrit-install/"
+           data-tag="gerrit"
+           data-author="" >
+            <span class="post-title" title="gerrit install">gerrit install</span>
+            <span class="post-date" title="2017-06-28 15:51:07">2017/06/28</span>
+        </a>
+        
+        <a  class="全部文章 Devops "
+           href="/2017/06/27/jira-install/"
+           data-tag="JIRA"
+           data-author="" >
+            <span class="post-title" title="JIRA安装">JIRA安装</span>
+            <span class="post-date" title="2017-06-27 01:53:54">2017/06/27</span>
+        </a>
+        
+        <a  class="全部文章 "
+           href="/2017/06/22/compute-node-ha/"
+           data-tag="HA,masakari"
+           data-author="" >
+            <span class="post-title" title="compute node ha 主流开源实现">compute node ha 主流开源实现</span>
+            <span class="post-date" title="2017-06-22 09:16:48">2017/06/22</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2017/06/15/live-migration-fail/"
+           data-tag="热迁移"
+           data-author="" >
+            <span class="post-title" title="热迁移失败总结">热迁移失败总结</span>
+            <span class="post-date" title="2017-06-15 18:54:53">2017/06/15</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2017/06/15/collectd-influxdb/"
+           data-tag="Collectd,InfluxDB"
+           data-author="" >
+            <span class="post-title" title="Collectd 和 InfluxDB 的部署和使用">Collectd 和 InfluxDB 的部署和使用</span>
+            <span class="post-date" title="2017-06-15 06:47:53">2017/06/15</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2017/06/14/block-migrate/"
+           data-tag="Nova,热迁移"
+           data-author="" >
+            <span class="post-title" title="本地存储条件下的热迁移">本地存储条件下的热迁移</span>
+            <span class="post-date" title="2017-06-14 15:25:48">2017/06/14</span>
+        </a>
+        
+        <a  class="全部文章 NFV "
+           href="/2017/06/14/doctor/"
+           data-tag="Doctor"
+           data-author="" >
+            <span class="post-title" title="Doctor framework">Doctor framework</span>
+            <span class="post-date" title="2017-06-14 11:51:04">2017/06/14</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_dev "
+           href="/2017/06/10/add-quick-evacuate/"
+           data-tag="VM HA,Nova"
+           data-author="" >
+            <span class="post-title" title="将快速疏散功能加入VM HA程序中">将快速疏散功能加入VM HA程序中</span>
+            <span class="post-date" title="2017-06-10 03:27:36">2017/06/10</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_dev "
+           href="/2017/06/08/force-down/"
+           data-tag="Nova,evacuate"
+           data-author="" >
+            <span class="post-title" title="新增OpenStack NOVA API用于强制计算节点nova-compute服务down">新增OpenStack NOVA API用于强制计算节点nova-compute服务down</span>
+            <span class="post-date" title="2017-06-08 20:11:17">2017/06/08</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2017/06/07/storage-arch/"
+           data-tag="存储"
+           data-author="" >
+            <span class="post-title" title="vm挂载卷，镜像，vm实例的共享存储架构">vm挂载卷，镜像，vm实例的共享存储架构</span>
+            <span class="post-date" title="2017-06-07 08:20:29">2017/06/07</span>
+        </a>
+        
+        <a  class="全部文章 网站里程碑 "
+           href="/2017/05/06/https/"
+           data-tag="https"
+           data-author="" >
+            <span class="post-title" title="后端云网站全部url http -&gt; https">后端云网站全部url http -&gt; https</span>
+            <span class="post-date" title="2017-05-06 11:03:57">2017/05/06</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2017/05/04/win-register/"
+           data-tag="windows"
+           data-author="" >
+            <span class="post-title" title="windows虚拟机激活失败问题">windows虚拟机激活失败问题</span>
+            <span class="post-date" title="2017-05-04 22:21:24">2017/05/04</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2017/05/03/ansible/"
+           data-tag="ansible"
+           data-author="" >
+            <span class="post-title" title="ansible简单使用">ansible简单使用</span>
+            <span class="post-date" title="2017-05-03 07:55:42">2017/05/03</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2017/05/02/pci-api/"
+           data-tag="PCI,API"
+           data-author="" >
+            <span class="post-title" title="pci-api support">pci-api support</span>
+            <span class="post-date" title="2017-05-02 10:11:54">2017/05/02</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2017/05/01/cyborg-agent/"
+           data-tag="Cyborg"
+           data-author="" >
+            <span class="post-title" title="cyborg agent">cyborg agent</span>
+            <span class="post-date" title="2017-05-01 17:49:47">2017/05/01</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2017/05/01/vm-mem/"
+           data-tag="内存"
+           data-author="" >
+            <span class="post-title" title="获取虚机内存">获取虚机内存</span>
+            <span class="post-date" title="2017-05-01 14:27:38">2017/05/01</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2017/05/01/fpag-user-case/"
+           data-tag="FPGA"
+           data-author="" >
+            <span class="post-title" title="FPGA用户用例提案">FPGA用户用例提案</span>
+            <span class="post-date" title="2017-05-01 13:39:58">2017/05/01</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2017/04/29/gpu-config-rst/"
+           data-tag="GPU,配置"
+           data-author="" >
+            <span class="post-title" title="云环境中GPU配置">云环境中GPU配置</span>
+            <span class="post-date" title="2017-04-29 18:49:59">2017/04/29</span>
+        </a>
+        
+        <a  class="全部文章 业界 "
+           href="/2017/03/10/yunying-huawei/"
+           data-tag="华为,运营商"
+           data-author="" >
+            <span class="post-title" title="华为和运营商们">华为和运营商们</span>
+            <span class="post-date" title="2017-03-10 21:25:44">2017/03/10</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2017/03/07/hosts-google/"
+           data-tag="google,hosts"
+           data-author="" >
+            <span class="post-title" title="访问google">访问google</span>
+            <span class="post-date" title="2017-03-07 01:14:05">2017/03/07</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2017/02/24/ocata-packstack/"
+           data-tag="Openstack Ocata"
+           data-author="" >
+            <span class="post-title" title="Openstack Ocata初体验">Openstack Ocata初体验</span>
+            <span class="post-date" title="2017-02-24 16:45:50">2017/02/24</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2017/02/17/qq-ad/"
+           data-tag="QQ,广告"
+           data-author="" >
+            <span class="post-title" title="去QQ广告">去QQ广告</span>
+            <span class="post-date" title="2017-02-17 03:41:34">2017/02/17</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2017/02/08/glance-regiontwo2one/"
+           data-tag="Region"
+           data-author="" >
+            <span class="post-title" title="openstack两个region分别用各自glance服务-&gt;共用glance服务">openstack两个region分别用各自glance服务-&gt;共用glance服务</span>
+            <span class="post-date" title="2017-02-08 16:51:34">2017/02/08</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2017/01/07/cyborg_intro/"
+           data-tag="Openstack,Cyborg"
+           data-author="" >
+            <span class="post-title" title="Openstack Cyborg 项目介绍">Openstack Cyborg 项目介绍</span>
+            <span class="post-date" title="2017-01-07 00:38:19">2017/01/07</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2016/12/24/xshell-skill/"
+           data-tag="xshell,隧道,效率,转发,多级跳转"
+           data-author="" >
+            <span class="post-title" title="xshell工具在开发中的使用技巧">xshell工具在开发中的使用技巧</span>
+            <span class="post-date" title="2016-12-24 23:10:36">2016/12/24</span>
+        </a>
+        
+        <a  class="全部文章 Tools "
+           href="/2016/09/02/vim-python/"
+           data-tag="vim"
+           data-author="" >
+            <span class="post-title" title="python，NFV项目开发--vim">python，NFV项目开发--vim</span>
+            <span class="post-date" title="2016-09-02 19:35:02">2016/09/02</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2016/08/18/vncviewer-openstack-vm/"
+           data-tag="vnc"
+           data-author="" >
+            <span class="post-title" title="网络不通的情况下，不通过dashboard，在未装图形化系统上查看openstack 创建的vm">网络不通的情况下，不通过dashboard，在未装图形化系统上查看openstack 创建的vm</span>
+            <span class="post-date" title="2016-08-18 13:49:11">2016/08/18</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_op "
+           href="/2016/07/05/lb/"
+           data-tag="Load Balance,LVS"
+           data-author="" >
+            <span class="post-title" title="Load Balance(LVS实现方式)">Load Balance(LVS实现方式)</span>
+            <span class="post-date" title="2016-07-05 23:10:25">2016/07/05</span>
+        </a>
+        
+        <a  class="全部文章 NFV "
+           href="/2016/07/05/vnfd-template-para/"
+           data-tag="VNFD,template,parameter"
+           data-author="" >
+            <span class="post-title" title="VNFD模板参数化">VNFD模板参数化</span>
+            <span class="post-date" title="2016-07-05 22:57:33">2016/07/05</span>
+        </a>
+        
+        <a  class="全部文章 NFV "
+           href="/2016/06/11/prediction/"
+           data-tag="OPNFV Prediction"
+           data-author="" >
+            <span class="post-title" title="OPNFV Prediction">OPNFV Prediction</span>
+            <span class="post-date" title="2016-06-11 16:11:10">2016/06/11</span>
+        </a>
+        
+        <a  class="全部文章 Openstack_dev "
+           href="/2016/06/11/token-manage/"
+           data-tag="openstack token管理"
+           data-author="" >
+            <span class="post-title" title="openstack token管理">openstack token管理</span>
+            <span class="post-date" title="2016-06-11 15:23:00">2016/06/11</span>
+        </a>
+        
+        <a  class="全部文章 NFV "
+           href="/2015/12/20/project-life-cycle/"
+           data-tag="生命周期,提案,孵化,成熟,集成,归档"
+           data-author="" >
+            <span class="post-title" title="OPNFV项目生命周期">OPNFV项目生命周期</span>
+            <span class="post-date" title="2015-12-20 20:02:27">2015/12/20</span>
+        </a>
+        
+        <a  class="全部文章 NFV "
+           href="/2015/12/20/system_membership/"
+           data-tag="管理体制,会员制,会员,Board,TSC"
+           data-author="" >
+            <span class="post-title" title="OPNFV的管理体制和会员制">OPNFV的管理体制和会员制</span>
+            <span class="post-date" title="2015-12-20 19:32:42">2015/12/20</span>
+        </a>
+        
+        <a  class="全部文章 NFV "
+           href="/2015/12/19/introduction-4/"
+           data-tag="开发,开源,参与"
+           data-author="" >
+            <span class="post-title" title="OPNFV简介(4) - 对所有人开放">OPNFV简介(4) - 对所有人开放</span>
+            <span class="post-date" title="2015-12-19 16:16:06">2015/12/19</span>
+        </a>
+        
+        <a  class="全部文章 NFV "
+           href="/2015/12/19/introduction-3/"
+           data-tag="上游关系"
+           data-author="" >
+            <span class="post-title" title="OPNFV简介(3) - 和上游关系">OPNFV简介(3) - 和上游关系</span>
+            <span class="post-date" title="2015-12-19 16:04:59">2015/12/19</span>
+        </a>
+        
+        <a  class="全部文章 NFV "
+           href="/2015/12/19/introduction-2/"
+           data-tag="子项目,ETSI,目标,生态"
+           data-author="" >
+            <span class="post-title" title="OPNFV简介(2) - overview">OPNFV简介(2) - overview</span>
+            <span class="post-date" title="2015-12-19 15:54:34">2015/12/19</span>
+        </a>
+        
+        <a  class="全部文章 NFV "
+           href="/2015/12/18/introduction-1/"
+           data-tag="产业趋势,产业需求"
+           data-author="" >
+            <span class="post-title" title="OPNFV简介(1) - 背景">OPNFV简介(1) - 背景</span>
+            <span class="post-date" title="2015-12-18 00:44:16">2015/12/18</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-bazel-go-hello" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Bazel Golang hello-world</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Devops">Devops</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color1">Bazel</a>
+            
+            <a class="color2">KubeVirt CI</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2023-03-14 09:01:00'>2022-07-13 18:33</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Golang-hello-world"><span class="toc-text">Golang hello-world</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84Golang%E9%A1%B9%E7%9B%AE"><span class="toc-text">另一个完整的Golang项目</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="readmore-container"><h1 id="Golang-hello-world"><a href="#Golang-hello-world" class="headerlink" title="Golang hello-world"></a>Golang hello-world</h1><blockquote>
+<p>代码放在 <a target="_blank" rel="noopener" href="https://github.com/backendcloud/example/tree/master/bazel-go-hello/hello">https://github.com/backendcloud/example/tree/master/bazel-go-hello/hello</a></p>
+</blockquote>
+<p>先用Go写个hello-world源文件。执行<code>go mod init</code>和<code>go mod tidy</code></p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># cat main/main.go </span>
+package main
+<span class="token function">import</span> <span class="token string">"fmt"</span>
+func <span class="token function-name function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    fmt.Println<span class="token punctuation">(</span><span class="token string">"hello world"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># ls</span>
+main
+<span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># go mod init hello</span>
+go: creating new go.mod: module hello
+go: to <span class="token function">add</span> module requirements and sums:
+        go mod tidy
+<span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># ls</span>
+go.mod  main
+<span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># go mod tidy</span></code></pre>
+
+<p>编写bazel所需的WORKSPACE (WORKSPACE中加上rules_go)</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># cat WORKSPACE </span>
+load<span class="token punctuation">(</span><span class="token string">"@bazel_tools//tools/build_defs/repo:http.bzl"</span>, <span class="token string">"http_archive"</span><span class="token punctuation">)</span>
+
+http_archive<span class="token punctuation">(</span>
+    name <span class="token operator">=</span> <span class="token string">"io_bazel_rules_go"</span>,
+    sha256 <span class="token operator">=</span> <span class="token string">"685052b498b6ddfe562ca7a97736741d87916fe536623afb7da2824c0211c369"</span>,
+    urls <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token string">"https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v0.33.0/rules_go-v0.33.0.zip"</span>,
+        <span class="token string">"https://github.com/bazelbuild/rules_go/releases/download/v0.33.0/rules_go-v0.33.0.zip"</span>,
+    <span class="token punctuation">]</span>,
+<span class="token punctuation">)</span>
+
+
+load<span class="token punctuation">(</span><span class="token string">"@io_bazel_rules_go//go:deps.bzl"</span>, <span class="token string">"go_register_toolchains"</span>, <span class="token string">"go_rules_dependencies"</span><span class="token punctuation">)</span>
+
+go_rules_dependencies<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+go_register_toolchains<span class="token punctuation">(</span>version <span class="token operator">=</span> <span class="token string">"1.18.3"</span><span class="token punctuation">)</span></code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># bazel build //main:main</span>
+ERROR: Skipping <span class="token string">'//main:main'</span><span class="token builtin class-name">:</span> no such package <span class="token string">'main'</span><span class="token builtin class-name">:</span> BUILD <span class="token function">file</span> not found <span class="token keyword">in</span> any of the following directories. Add a BUILD <span class="token function">file</span> to a directory to mark it as a package.
+ - /root/hello/main
+WARNING: Target pattern parsing failed.
+ERROR: no such package <span class="token string">'main'</span><span class="token builtin class-name">:</span> BUILD <span class="token function">file</span> not found <span class="token keyword">in</span> any of the following directories. Add a BUILD <span class="token function">file</span> to a directory to mark it as a package.
+ - /root/hello/main
+INFO: Elapsed time: <span class="token number">0</span>.137s
+INFO: <span class="token number">0</span> processes.
+FAILED: Build did NOT complete successfully <span class="token punctuation">(</span><span class="token number">0</span> packages loaded<span class="token punctuation">)</span>
+<span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># bazel run //main:main</span>
+ERROR: Skipping <span class="token string">'//main:main'</span><span class="token builtin class-name">:</span> no such package <span class="token string">'main'</span><span class="token builtin class-name">:</span> BUILD <span class="token function">file</span> not found <span class="token keyword">in</span> any of the following directories. Add a BUILD <span class="token function">file</span> to a directory to mark it as a package.
+ - /root/hello/main
+WARNING: Target pattern parsing failed.
+ERROR: no such package <span class="token string">'main'</span><span class="token builtin class-name">:</span> BUILD <span class="token function">file</span> not found <span class="token keyword">in</span> any of the following directories. Add a BUILD <span class="token function">file</span> to a directory to mark it as a package.
+ - /root/hello/main
+INFO: Elapsed time: <span class="token number">0</span>.127s
+INFO: <span class="token number">0</span> processes.
+FAILED: Build did NOT complete successfully <span class="token punctuation">(</span><span class="token number">0</span> packages loaded<span class="token punctuation">)</span>
+FAILED: Build did NOT complete successfully <span class="token punctuation">(</span><span class="token number">0</span> packages loaded<span class="token punctuation">)</span></code></pre>
+
+<p>这时执行bazel build和run，会报错，因为源码所在文件夹main文件夹里还没有BUILD.bazel文件和文件内容。该文件可以手动编写也可以用gazelle自动生成。下面分别介绍手动编写和自动生成BUILD.bazel文件。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># vi main/BUILD.bazel</span>
+<span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># cat main/BUILD.bazel</span>
+load<span class="token punctuation">(</span><span class="token string">"@io_bazel_rules_go//go:def.bzl"</span>, <span class="token string">"go_binary"</span><span class="token punctuation">)</span>
+
+go_binary<span class="token punctuation">(</span>
+    name <span class="token operator">=</span> <span class="token string">"main"</span>,
+    srcs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"main.go"</span><span class="token punctuation">]</span>,
+<span class="token punctuation">)</span>
+<span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># bazel build //main:main</span>
+INFO: Analyzed target //main:main <span class="token punctuation">(</span><span class="token number">1</span> packages loaded, <span class="token number">2</span> targets configured<span class="token punctuation">)</span>.
+INFO: Found <span class="token number">1</span> target<span class="token punctuation">..</span>.
+Target //main:main up-to-date:
+  bazel-bin/main/main_/main
+INFO: Elapsed time: <span class="token number">0</span>.318s, Critical Path: <span class="token number">0</span>.13s
+INFO: <span class="token number">3</span> processes: <span class="token number">1</span> internal, <span class="token number">2</span> linux-sandbox.
+INFO: Build completed successfully, <span class="token number">3</span> total actions
+<span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># bazel run //main:main</span>
+INFO: Analyzed target //main:main <span class="token punctuation">(</span><span class="token number">0</span> packages loaded, <span class="token number">0</span> targets configured<span class="token punctuation">)</span>.
+INFO: Found <span class="token number">1</span> target<span class="token punctuation">..</span>.
+Target //main:main up-to-date:
+  bazel-bin/main/main_/main
+INFO: Elapsed time: <span class="token number">0</span>.159s, Critical Path: <span class="token number">0</span>.00s
+INFO: <span class="token number">1</span> process: <span class="token number">1</span> internal.
+INFO: Build completed successfully, <span class="token number">1</span> total action
+INFO: Build completed successfully, <span class="token number">1</span> total action
+hello world</code></pre>
+
+<p>手动编辑源码所在文件夹main文件夹BUILD.bazel文件后，bazel build和run成功，下面介绍gazelle自动生成源码文件夹对应的BUILD.bazel文件。</p>
+<p>先删除BUILD.bazel文件。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># tree main</span>
+main
+├── BUILD.bazel
+└── main.go
+
+<span class="token number">0</span> directories, <span class="token number">2</span> files
+<span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># rm -rf main/BUILD.bazel </span>
+<span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># tree main</span>
+main
+└── main.go
+
+<span class="token number">0</span> directories, <span class="token number">1</span> <span class="token function">file</span></code></pre>
+
+<p>WORKSPACE文件增加gazelle相关内容。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># vi WORKSPACE </span>
+<span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># cat WORKSPACE </span>
+load<span class="token punctuation">(</span><span class="token string">"@bazel_tools//tools/build_defs/repo:http.bzl"</span>, <span class="token string">"http_archive"</span><span class="token punctuation">)</span>
+
+http_archive<span class="token punctuation">(</span>
+    name <span class="token operator">=</span> <span class="token string">"io_bazel_rules_go"</span>,
+    sha256 <span class="token operator">=</span> <span class="token string">"685052b498b6ddfe562ca7a97736741d87916fe536623afb7da2824c0211c369"</span>,
+    urls <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token string">"https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v0.33.0/rules_go-v0.33.0.zip"</span>,
+        <span class="token string">"https://github.com/bazelbuild/rules_go/releases/download/v0.33.0/rules_go-v0.33.0.zip"</span>,
+    <span class="token punctuation">]</span>,
+<span class="token punctuation">)</span>
+
+http_archive<span class="token punctuation">(</span>
+    name <span class="token operator">=</span> <span class="token string">"bazel_gazelle"</span>,
+    sha256 <span class="token operator">=</span> <span class="token string">"5982e5463f171da99e3bdaeff8c0f48283a7a5f396ec5282910b9e8a49c0dd7e"</span>,
+    urls <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token string">"https://mirror.bazel.build/github.com/bazelbuild/bazel-gazelle/releases/download/v0.25.0/bazel-gazelle-v0.25.0.tar.gz"</span>,
+        <span class="token string">"https://github.com/bazelbuild/bazel-gazelle/releases/download/v0.25.0/bazel-gazelle-v0.25.0.tar.gz"</span>,
+    <span class="token punctuation">]</span>,
+<span class="token punctuation">)</span>
+
+load<span class="token punctuation">(</span><span class="token string">"@io_bazel_rules_go//go:deps.bzl"</span>, <span class="token string">"go_register_toolchains"</span>, <span class="token string">"go_rules_dependencies"</span><span class="token punctuation">)</span>
+load<span class="token punctuation">(</span><span class="token string">"@bazel_gazelle//:deps.bzl"</span>, <span class="token string">"gazelle_dependencies"</span><span class="token punctuation">)</span>
+
+go_rules_dependencies<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+go_register_toolchains<span class="token punctuation">(</span>version <span class="token operator">=</span> <span class="token string">"1.18.3"</span><span class="token punctuation">)</span>
+gazelle_dependencies<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># bazel run //:gazelle</span>
+ERROR: Skipping <span class="token string">'//:gazelle'</span><span class="token builtin class-name">:</span> no such package <span class="token string">''</span><span class="token builtin class-name">:</span> BUILD <span class="token function">file</span> not found <span class="token keyword">in</span> any of the following directories. Add a BUILD <span class="token function">file</span> to a directory to mark it as a package.
+ - /root/hello
+WARNING: Target pattern parsing failed.
+ERROR: no such package <span class="token string">''</span><span class="token builtin class-name">:</span> BUILD <span class="token function">file</span> not found <span class="token keyword">in</span> any of the following directories. Add a BUILD <span class="token function">file</span> to a directory to mark it as a package.
+ - /root/hello
+INFO: Elapsed time: <span class="token number">0</span>.157s
+INFO: <span class="token number">0</span> processes.
+FAILED: Build did NOT complete successfully <span class="token punctuation">(</span><span class="token number">0</span> packages loaded<span class="token punctuation">)</span>
+FAILED: Build did NOT complete successfully <span class="token punctuation">(</span><span class="token number">0</span> packages loaded<span class="token punctuation">)</span></code></pre>
+
+<p>忘记项目根目录写BUILD.bazel文件的gazelle内容了。补上。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># cat BUILD.bazel </span>
+load<span class="token punctuation">(</span><span class="token string">"@bazel_gazelle//:def.bzl"</span>, <span class="token string">"gazelle"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># gazelle:prefix github.com/example/project</span>
+gazelle<span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"gazelle"</span><span class="token punctuation">)</span></code></pre>
+
+
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># bazel run //:gazelle</span>
+INFO: Analyzed target //:gazelle <span class="token punctuation">(</span><span class="token number">34</span> packages loaded, <span class="token number">407</span> targets configured<span class="token punctuation">)</span>.
+INFO: Found <span class="token number">1</span> target<span class="token punctuation">..</span>.
+ERROR: /root/.cache/bazel/_bazel_root/8516ecc87a690cd3acb37f3088b16cd1/external/org_golang_x_mod/module/BUILD.bazel:3:11: GoCompilePkg external/org_golang_x_mod/module/module.a <span class="token punctuation">[</span>for host<span class="token punctuation">]</span> failed: <span class="token punctuation">(</span>Exit <span class="token number">1</span><span class="token punctuation">)</span>: builder failed: error executing <span class="token builtin class-name">command</span> bazel-out/host/bin/external/go_sdk/builder compilepkg <span class="token parameter variable">-sdk</span> external/go_sdk <span class="token parameter variable">-installsuffix</span> linux_amd64 <span class="token parameter variable">-src</span> external/org_golang_x_mod/module/module.go <span class="token parameter variable">-src</span> external/org_golang_x_mod/module/pseudo.go <span class="token punctuation">..</span>. <span class="token punctuation">(</span>remaining <span class="token number">24</span> arguments skipped<span class="token punctuation">)</span>
+
+Use <span class="token parameter variable">--sandbox_debug</span> to see verbose messages from the sandbox and retain the sandbox build root <span class="token keyword">for</span> debugging
+compilepkg: missing strict dependencies:
+        /root/.cache/bazel/_bazel_root/8516ecc87a690cd3acb37f3088b16cd1/sandbox/linux-sandbox/16/execroot/__main__/external/org_golang_x_mod/module/module.go: <span class="token function">import</span> of <span class="token string">"golang.org/x/xerrors"</span>
+No dependencies were provided.
+Check that imports <span class="token keyword">in</span> Go sources match importpath attributes <span class="token keyword">in</span> deps.
+Target //:gazelle failed to build
+Use <span class="token parameter variable">--verbose_failures</span> to see the <span class="token builtin class-name">command</span> lines of failed build steps.
+INFO: Elapsed time: <span class="token number">47</span>.864s, Critical Path: <span class="token number">1</span>.31s
+INFO: <span class="token number">25</span> processes: <span class="token number">15</span> internal, <span class="token number">10</span> linux-sandbox.
+FAILED: Build did NOT complete successfully
+FAILED: Build did NOT complete successfully</code></pre>
+
+<p>执行gazelle报错：<code>org_golang_x_mod/module/module.go: import of "golang.org/x/xerrors" No dependencies were provided.</code></p>
+<p>这个错误可能是gazelle v0.24 和 v0.25 的bug，将版本降至v0.23错误消失。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#http_archive(</span>
+<span class="token comment">#    name = "bazel_gazelle",</span>
+<span class="token comment">#    sha256 = "5982e5463f171da99e3bdaeff8c0f48283a7a5f396ec5282910b9e8a49c0dd7e",</span>
+<span class="token comment">#    urls = [</span>
+<span class="token comment">#        "https://mirror.bazel.build/github.com/bazelbuild/bazel-gazelle/releases/download/v0.25.0/bazel-gazelle-v0.25.0.tar.gz",</span>
+<span class="token comment">#        "https://github.com/bazelbuild/bazel-gazelle/releases/download/v0.25.0/bazel-gazelle-v0.25.0.tar.gz",</span>
+<span class="token comment">#    ],</span>
+<span class="token comment">#)</span>
+
+http_archive<span class="token punctuation">(</span>
+    name <span class="token operator">=</span> <span class="token string">"bazel_gazelle"</span>,
+    sha256 <span class="token operator">=</span> <span class="token string">"62ca106be173579c0a167deb23358fdfe71ffa1e4cfdddf5582af26520f1c66f"</span>,
+    urls <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token string">"https://mirror.bazel.build/github.com/bazelbuild/bazel-gazelle/releases/download/v0.23.0/bazel-gazelle-v0.23.0.tar.gz"</span>,
+        <span class="token string">"https://github.com/bazelbuild/bazel-gazelle/releases/download/v0.23.0/bazel-gazelle-v0.23.0.tar.gz"</span>,
+    <span class="token punctuation">]</span>,
+<span class="token punctuation">)</span></code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># tree main</span>
+main
+└── main.go
+
+<span class="token number">0</span> directories, <span class="token number">1</span> <span class="token function">file</span>
+<span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># bazel run //:gazelle</span>
+INFO: Analyzed target //:gazelle <span class="token punctuation">(</span><span class="token number">84</span> packages loaded, <span class="token number">8715</span> targets configured<span class="token punctuation">)</span>.
+INFO: Found <span class="token number">1</span> target<span class="token punctuation">..</span>.
+Target //:gazelle up-to-date:
+  bazel-bin/gazelle-runner.bash
+  bazel-bin/gazelle
+INFO: Elapsed time: <span class="token number">59</span>.258s, Critical Path: <span class="token number">25</span>.89s
+INFO: <span class="token number">26</span> processes: <span class="token number">4</span> internal, <span class="token number">22</span> linux-sandbox.
+INFO: Build completed successfully, <span class="token number">26</span> total actions
+INFO: Build completed successfully, <span class="token number">26</span> total actions
+<span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># tree main</span>
+main
+├── BUILD.bazel
+└── main.go
+
+<span class="token number">0</span> directories, <span class="token number">2</span> files
+<span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># cat main/BUILD.bazel </span>
+load<span class="token punctuation">(</span><span class="token string">"@io_bazel_rules_go//go:def.bzl"</span>, <span class="token string">"go_binary"</span>, <span class="token string">"go_library"</span><span class="token punctuation">)</span>
+
+go_library<span class="token punctuation">(</span>
+    name <span class="token operator">=</span> <span class="token string">"main_lib"</span>,
+    srcs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"main.go"</span><span class="token punctuation">]</span>,
+    importpath <span class="token operator">=</span> <span class="token string">"github.com/example/project/main"</span>,
+    visibility <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"//visibility:private"</span><span class="token punctuation">]</span>,
+<span class="token punctuation">)</span>
+
+go_binary<span class="token punctuation">(</span>
+    name <span class="token operator">=</span> <span class="token string">"main"</span>,
+    embed <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">":main_lib"</span><span class="token punctuation">]</span>,
+    visibility <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"//visibility:public"</span><span class="token punctuation">]</span>,
+<span class="token punctuation">)</span></code></pre>
+
+<p>查看源文件对应的目录，自动生成了BUILD.bazel文件</p>
+<p>bazel build 和 run 都正常</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># bazel build //main:main</span>
+INFO: Analyzed target //main:main <span class="token punctuation">(</span><span class="token number">0</span> packages loaded, <span class="token number">0</span> targets configured<span class="token punctuation">)</span>.
+INFO: Found <span class="token number">1</span> target<span class="token punctuation">..</span>.
+Target //main:main up-to-date:
+  bazel-bin/main/main_/main
+INFO: Elapsed time: <span class="token number">0</span>.178s, Critical Path: <span class="token number">0</span>.00s
+INFO: <span class="token number">1</span> process: <span class="token number">1</span> internal.
+INFO: Build completed successfully, <span class="token number">1</span> total action
+<span class="token punctuation">[</span>root@localhost hello<span class="token punctuation">]</span><span class="token comment"># bazel run //main:main</span>
+INFO: Analyzed target //main:main <span class="token punctuation">(</span><span class="token number">0</span> packages loaded, <span class="token number">0</span> targets configured<span class="token punctuation">)</span>.
+INFO: Found <span class="token number">1</span> target<span class="token punctuation">..</span>.
+Target //main:main up-to-date:
+  bazel-bin/main/main_/main
+INFO: Elapsed time: <span class="token number">0</span>.159s, Critical Path: <span class="token number">0</span>.00s
+INFO: <span class="token number">1</span> process: <span class="token number">1</span> internal.
+INFO: Build completed successfully, <span class="token number">1</span> total action
+INFO: Build completed successfully, <span class="token number">1</span> total action
+hello world</code></pre>
+
+<blockquote>
+<p>看了下gazalle代码仓库，17天前（本篇发布于2022-07-13）刚发了一个最新版本v0.26，试了下最新版BUG已经改掉，可将下面的内容替换掉WORKSPACE的相关内容</p>
+</blockquote>
+<pre class="language-bash" data-language="bash"><code class="language-bash">http_archive<span class="token punctuation">(</span>
+    name <span class="token operator">=</span> <span class="token string">"bazel_gazelle"</span>,
+    sha256 <span class="token operator">=</span> <span class="token string">"501deb3d5695ab658e82f6f6f549ba681ea3ca2a5fb7911154b5aa45596183fa"</span>,
+    urls <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token string">"https://mirror.bazel.build/github.com/bazelbuild/bazel-gazelle/releases/download/v0.26.0/bazel-gazelle-v0.26.0.tar.gz"</span>,
+        <span class="token string">"https://github.com/bazelbuild/bazel-gazelle/releases/download/v0.26.0/bazel-gazelle-v0.26.0.tar.gz"</span>,
+    <span class="token punctuation">]</span>,
+<span class="token punctuation">)</span>
+
+load<span class="token punctuation">(</span><span class="token string">"@bazel_gazelle//:deps.bzl"</span>, <span class="token string">"gazelle_dependencies"</span>, <span class="token string">"go_repository"</span><span class="token punctuation">)</span></code></pre>
+
+
+<h1 id="另一个完整的Golang项目"><a href="#另一个完整的Golang项目" class="headerlink" title="另一个完整的Golang项目"></a>另一个完整的Golang项目</h1><p>上面的例子是个仅有一个go文件main.go的打印一句话的最小Golang项目，下面是一个具备 内部包引用 和 go.mod第三方包引用 的 简单的生成uuid 的 完整Golang项目。</p>
+<blockquote>
+<p>代码放在 <a target="_blank" rel="noopener" href="https://github.com/backendcloud/example/tree/master/bazel-sample/basic">https://github.com/backendcloud/example/tree/master/bazel-sample/basic</a></p>
+</blockquote>
+<pre class="language-bash" data-language="bash"><code class="language-bash"> ⚡ root@localhost  ~/bazel-sample/basic   main  <span class="token function">ls</span>
+BUILD.bazel  cmd  deps.bzl  go.mod  go.sum  uuid  WORKSPACE
+ ⚡ root@localhost  ~/bazel-sample/basic   main  <span class="token function">more</span> cmd/*
+::::::::::::::
+cmd/BUILD.bazel
+::::::::::::::
+load<span class="token punctuation">(</span><span class="token string">"@io_bazel_rules_go//go:def.bzl"</span>, <span class="token string">"go_binary"</span>, <span class="token string">"go_library"</span><span class="token punctuation">)</span>
+
+go_library<span class="token punctuation">(</span>
+    name <span class="token operator">=</span> <span class="token string">"cmd_lib"</span>,
+    srcs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"main.go"</span><span class="token punctuation">]</span>,
+    importpath <span class="token operator">=</span> <span class="token string">"github.com/jun06t/bazel-sample/basic/cmd"</span>,
+    visibility <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"//visibility:private"</span><span class="token punctuation">]</span>,
+    deps <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"//uuid"</span><span class="token punctuation">]</span>,
+<span class="token punctuation">)</span>
+
+go_binary<span class="token punctuation">(</span>
+    name <span class="token operator">=</span> <span class="token string">"cmd"</span>,
+    embed <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">":cmd_lib"</span><span class="token punctuation">]</span>,
+    pure <span class="token operator">=</span> <span class="token string">"on"</span>,
+    visibility <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"//visibility:public"</span><span class="token punctuation">]</span>,
+<span class="token punctuation">)</span>
+::::::::::::::
+cmd/main.go
+::::::::::::::
+package main
+
+<span class="token function">import</span> <span class="token punctuation">(</span>
+        <span class="token string">"log"</span>
+
+        <span class="token string">"github.com/jun06t/bazel-sample/basic/uuid"</span>
+<span class="token punctuation">)</span>
+
+func <span class="token function-name function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        id, err :<span class="token operator">=</span> uuid.Generate<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> err <span class="token operator">!=</span> nil <span class="token punctuation">{</span>
+                log.Fatal<span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        log.Println<span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+ ⚡ root@localhost  ~/bazel-sample/basic   main  <span class="token function">more</span> uuid/*
+::::::::::::::
+uuid/BUILD.bazel
+::::::::::::::
+load<span class="token punctuation">(</span><span class="token string">"@io_bazel_rules_go//go:def.bzl"</span>, <span class="token string">"go_library"</span><span class="token punctuation">)</span>
+
+go_library<span class="token punctuation">(</span>
+    name <span class="token operator">=</span> <span class="token string">"uuid"</span>,
+    srcs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"uuid.go"</span><span class="token punctuation">]</span>,
+    importpath <span class="token operator">=</span> <span class="token string">"github.com/jun06t/bazel-sample/basic/uuid"</span>,
+    visibility <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"//visibility:public"</span><span class="token punctuation">]</span>,
+    deps <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"@com_github_google_uuid//:uuid"</span><span class="token punctuation">]</span>,
+<span class="token punctuation">)</span>
+::::::::::::::
+uuid/uuid.go
+::::::::::::::
+package uuid
+
+<span class="token function">import</span> <span class="token punctuation">(</span>
+        <span class="token string">"github.com/google/uuid"</span>
+<span class="token punctuation">)</span>
+
+func Generate<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>string, error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        u, err :<span class="token operator">=</span> uuid.NewUUID<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> err <span class="token operator">!=</span> nil <span class="token punctuation">{</span>
+                <span class="token builtin class-name">return</span> <span class="token string">""</span>, err
+        <span class="token punctuation">}</span>
+        <span class="token builtin class-name">return</span> u.String<span class="token punctuation">(</span><span class="token punctuation">)</span>, nil
+<span class="token punctuation">}</span>
+ ⚡ root@localhost  ~/bazel-sample/basic   main  <span class="token function">more</span>  deps.bzl 
+load<span class="token punctuation">(</span><span class="token string">"@bazel_gazelle//:deps.bzl"</span>, <span class="token string">"go_repository"</span><span class="token punctuation">)</span>
+
+def go_dependencies<span class="token punctuation">(</span><span class="token punctuation">)</span>:
+    go_repository<span class="token punctuation">(</span>
+        name <span class="token operator">=</span> <span class="token string">"com_github_google_uuid"</span>,
+        importpath <span class="token operator">=</span> <span class="token string">"github.com/google/uuid"</span>,
+        <span class="token function">sum</span> <span class="token operator">=</span> <span class="token string">"h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I="</span>,
+        version <span class="token operator">=</span> <span class="token string">"v1.3.0"</span>,
+    <span class="token punctuation">)</span></code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash"> ⚡ root@localhost  ~/bazel-sample/basic   main  bazelisk build //<span class="token punctuation">..</span>.
+INFO: SHA256 <span class="token punctuation">(</span>https://golang.org/dl/?mode<span class="token operator">=</span>json<span class="token operator">&amp;</span><span class="token assign-left variable">include</span><span class="token operator">=</span>all<span class="token punctuation">)</span> <span class="token operator">=</span> 5d539711d20290d769b21f137348eea164d5fd408cfc6483c9937d9e1a2a6d98
+INFO: Analyzed <span class="token number">3</span> targets <span class="token punctuation">(</span><span class="token number">31</span> packages loaded, <span class="token number">7999</span> targets configured<span class="token punctuation">)</span>.
+INFO: Found <span class="token number">3</span> targets<span class="token punctuation">..</span>.
+INFO: Elapsed time: <span class="token number">66</span>.214s, Critical Path: <span class="token number">18</span>.44s
+INFO: <span class="token number">14</span> processes: <span class="token number">4</span> internal, <span class="token number">10</span> linux-sandbox.
+INFO: Build completed successfully, <span class="token number">14</span> total actions
+ ⚡ root@localhost  ~/bazel-sample/basic   main  tree bazel-bin
+bazel-bin
+├── cmd
+│   ├── cmd_lib.a
+│   └── cmd_lib.x
+├── external
+│   └── com_github_google_uuid
+│       ├── uuid.a
+│       └── uuid.x
+└── uuid
+    ├── uuid.a
+    └── uuid.x
+
+<span class="token number">4</span> directories, <span class="token number">6</span> files
+ ⚡ root@localhost  ~/bazel-sample/basic   main  bazelisk run //cmd:cmd
+INFO: Analyzed target //cmd:cmd <span class="token punctuation">(</span><span class="token number">0</span> packages loaded, <span class="token number">0</span> targets configured<span class="token punctuation">)</span>.
+INFO: Found <span class="token number">1</span> target<span class="token punctuation">..</span>.
+Target //cmd:cmd up-to-date:
+  bazel-out/k8-fastbuild-ST-4c64f0b3d5c7/bin/cmd/cmd_/cmd
+INFO: Elapsed time: <span class="token number">0</span>.239s, Critical Path: <span class="token number">0</span>.00s
+INFO: <span class="token number">1</span> process: <span class="token number">1</span> internal.
+INFO: Build completed successfully, <span class="token number">1</span> total action
+INFO: Build completed successfully, <span class="token number">1</span> total action
+<span class="token number">2022</span>/07/26 <span class="token number">15</span>:40:57 4940e599-0cb6-11ed-b31b-000c297cbcd1</code></pre>
+
+<blockquote>
+<p>cmd/BUILD.bazel 和 uuid/BUILD.bazel 两个文件是用 bazelisk run //:gazelle 自动生成的</p>
+</blockquote>
+<blockquote>
+<p>可以在 deps.bzl 和 WORKSPACE 中手动指定go包依赖，也可以不用指定，由rules_go/gazelle自动指定。</p>
+</blockquote>
+</div>
+
+			<link rel="stylesheet" type="text/css" href="https://qiniu.techgrow.cn/readmore/dist/hexo.css">
+			<script src="https://qiniu.techgrow.cn/readmore/dist/readmore.js" type="text/javascript"></script>
+			<script>
+			var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+			if (!isMobile) {
+				try {
+					var plugin = new ReadmorePlugin();
+					plugin.init({
+						"id": "readmore-container",
+						"blogId": "48072-1211879175079-403",
+						"name": "后端云",
+						"qrcode": "https://www.backendcloud.cn/img/wechat-dingyuehao.jpg",
+						"keyword": "cloud",
+						"lockToc": "yes",
+						"type": "hexo",
+						"random": "1",
+						"interval": "60",
+						"expires": "365",
+						"height": "auto"
+					});
+				} catch(e) {
+					console.warn("readmore plugin occurred error: " + e.name + " | " + e.message);
+				}
+			}
+			</script>
+		
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出任何有错误或不够清晰的表达。可以邮件至 backendcloud@gmail.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <div class="wechat_OA">
+	<span>欢迎您扫一扫下面的微信公众号对"后端云"进行订阅！</span>
+	<br>
+    <!-- 这里添加你的二维码图片 -->
+	<img src ="/img/wechat-dingyuehao.jpg">
+</div>
+
+<p class="footer-entry"><span class="miit">
+                <img src="/img/gov.png" title="中华人民共和国工业和信息化部">
+                <a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">苏ICP备15031601-2号</a>
+        </span>
+    
+    ©2017-2022 后端云
+</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
